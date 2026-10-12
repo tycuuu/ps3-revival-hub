@@ -1,126 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#003791">
-<title>PS3 Revival Hub — Baza DNS</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061b52">
+<title>PS3 Revival Hub — Gry online</title>
 <style>
-:root{--blue:#003791;--deep:#001f66;--light:#e7efff;--ink:#14213d;--muted:#58657b;--line:#b8c9e8;--bg:#f3f6fc;--white:#fff;--gold:#f5c542}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px Tahoma,Arial,sans-serif}
-a{color:var(--blue)}
-.topline{height:7px;background:var(--gold)}
-header{background:linear-gradient(110deg,var(--deep),var(--blue));color:white;border-bottom:4px solid #86a8e8}
-.head-inner{max-width:1120px;margin:auto;padding:22px 18px 18px}
-.brand{display:flex;align-items:center;gap:13px}
-.ps-mark{display:grid;place-items:center;width:48px;height:48px;border:2px solid #fff;border-radius:50%;font-weight:bold;font-size:19px;letter-spacing:-2px}
-h1{font-size:26px;line-height:1.2;margin:0}
-.tagline{margin:7px 0 0;color:#dbe7ff;font-size:13px}
-nav{background:#dbe7fb;border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1120px;margin:auto;padding:0 18px;display:flex;gap:4px;flex-wrap:wrap}
-nav a{display:inline-block;padding:12px 14px;text-decoration:none;color:#00266d;font-weight:bold;font-size:13px}
-nav a:first-child,nav a:hover{background:#fff}
-main{max-width:1120px;margin:22px auto;padding:0 18px}
-.hero{background:white;border:1px solid var(--line);box-shadow:0 2px 0 #d8e2f3;padding:18px;margin-bottom:18px}
-.hero h2{margin:0 0 8px;font-size:20px;color:var(--deep)}
-.hero p{margin:0;color:var(--muted);line-height:1.55}
-.statusbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.pill{border:1px solid var(--line);background:#f7faff;padding:7px 10px;font-size:12px;color:#243e70}
-.controls{display:grid;grid-template-columns:1fr 220px;gap:10px;margin:18px 0}
-input,select{font:inherit;padding:11px;border:1px solid #9eb5dc;background:white;color:var(--ink);border-radius:0;min-width:0}
-.section-title{font-size:17px;border-bottom:2px solid var(--blue);padding-bottom:8px;margin:22px 0 12px}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.game{background:white;border:1px solid var(--line);box-shadow:0 2px 0 #d8e2f3}
-.game-head{background:#e8f0ff;border-bottom:1px solid var(--line);padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.game h3{font-size:16px;margin:0;color:#002d7b}
-.project{font-size:12px;color:var(--muted);margin-top:4px}
-.status{font-size:11px;border:1px solid #9eb5dc;padding:4px 6px;white-space:nowrap;background:#fff}
-.game-body{padding:13px 14px}
-.dns-label{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:bold;letter-spacing:.4px}
-.dns-row{display:flex;align-items:center;gap:8px;margin-top:6px}
-.dns{font-family:Consolas,monospace;font-size:14px;font-weight:bold;overflow-wrap:anywhere}
-.copy{font:12px Tahoma,Arial,sans-serif;padding:6px 9px;background:var(--blue);color:#fff;border:1px solid var(--deep);cursor:pointer;flex-shrink:0}
-.copy:hover{background:var(--deep)}
-.other{margin-top:13px;padding-top:11px;border-top:1px dashed var(--line)}
-.other-list{margin:6px 0 0;padding-left:18px}
-.other-list li{margin:5px 0;font-family:Consolas,monospace;overflow-wrap:anywhere}
-.notes{margin-top:10px;font-size:12px;color:var(--muted);line-height:1.5}
-.empty{background:white;border:1px solid var(--line);padding:18px;color:var(--muted)}
-footer{margin-top:32px;background:#e2ebfb;border-top:1px solid var(--line);color:#445574}
-.foot-inner{max-width:1120px;margin:auto;padding:18px;font-size:12px;line-height:1.6}
-@media(max-width:680px){h1{font-size:21px}.controls{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.game-head{flex-direction:column}.status{align-self:flex-start}}
+:root{--bg:#071331;--panel:#0b2050;--panel2:#102c68;--blue:#1688ff;--cyan:#50c8ff;--text:#f4f7ff;--muted:#a9bbdf;--line:#244c8a;--green:#12bd78;--yellow:#f3bb29}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#174ca4 0,#0b2459 30%,var(--bg) 70%);color:var(--text);font:15px Arial,Helvetica,sans-serif}
+a{color:#8bd7ff}.top{height:4px;background:linear-gradient(90deg,#009bff,#fff,#00b8ff)}
+header{background:linear-gradient(115deg,rgba(3,14,47,.98),rgba(7,40,102,.96));border-bottom:1px solid #2862a9;box-shadow:0 10px 32px #02091c80}
+.head{max-width:1240px;margin:auto;padding:22px 20px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:15px}.logo{font-weight:300;font-size:36px;letter-spacing:2px;color:#fff;text-shadow:0 0 18px #64cfff}.logo small{display:block;font-size:12px;letter-spacing:4px;color:#7ccfff;text-align:center}.brand h1{margin:0;font-size:25px;font-weight:500}.brand p{margin:5px 0 0;color:#aac9f8;font-size:13px}.nav{display:flex;gap:5px;flex-wrap:wrap}.nav a{padding:10px 13px;text-decoration:none;color:#eaf4ff;border-radius:6px;font-size:13px}.nav a:first-child,.nav a:hover{background:#164a9b;box-shadow:inset 0 0 0 1px #3d8bdf}
+main{max-width:1240px;margin:0 auto;padding:20px}.banner{border:1px solid #285ca0;border-radius:12px;background:linear-gradient(100deg,#0b2862ed,#0c3979d9),radial-gradient(circle at right,#1b89e8,transparent 40%);padding:21px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 28px #020a23aa}.banner h2{margin:0 0 8px;font-size:23px}.banner p{margin:0;color:#b7d2fa;line-height:1.5}.orb{font-size:42px;color:#80d7ff;text-shadow:0 0 28px #0af;white-space:nowrap}
+.toolbar{display:flex;gap:10px;margin:18px 0 12px}.toolbar input,.toolbar select{width:100%;min-width:0;padding:13px 14px;background:#071a40;color:white;border:1px solid #2a5b9a;border-radius:7px;font-size:14px;outline:none}.toolbar input:focus,.toolbar select:focus{border-color:#5dc9ff;box-shadow:0 0 0 2px #1688ff40}.toolbar select{max-width:220px}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 18px}.tab{border:1px solid #244f89;background:#0b2050;color:#c8dcff;padding:9px 13px;border-radius:20px;cursor:pointer}.tab.active,.tab:hover{background:#1767c3;color:#fff;border-color:#51b8ff}.summary{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#a8c2ed;font-size:12px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.game{border:1px solid #244f8b;border-radius:10px;overflow:hidden;background:linear-gradient(145deg,#102957,#071735 75%);box-shadow:0 5px 16px #02091d8a;transition:transform .15s,border-color .15s}.game:hover{transform:translateY(-3px);border-color:#55baff;box-shadow:0 9px 26px #00102d}
+.cover{height:142px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,var(--c1,#164ca1),var(--c2,#071431));border-bottom:1px solid #2863a7}.cover:before,.cover:after{content:"";position:absolute;border:1px solid #ffffff30;transform:rotate(-25deg);width:180%;height:65px;left:-25%;top:18px;background:linear-gradient(90deg,transparent,#ffffff10,transparent)}.cover:after{top:85px;transform:rotate(25deg);height:38px}.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.cover .mark{z-index:2;text-align:center;padding:12px 15px;text-transform:uppercase;font-weight:900;letter-spacing:1.4px;font-size:clamp(17px,2vw,25px);text-shadow:0 3px 5px #000,0 0 18px #000;max-width:100%;overflow-wrap:anywhere}.cover .platform{position:absolute;top:9px;left:10px;z-index:3;font-size:11px;letter-spacing:2px;font-weight:bold;text-shadow:0 2px 4px #000}.cover .fav{position:absolute;right:10px;top:6px;z-index:4;border:0;background:#071735aa;color:white;font-size:22px;cursor:pointer;border-radius:50%;width:34px;height:34px}.details{padding:13px}.title-row{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.title-row h3{font-size:16px;margin:0 0 6px;font-weight:600;line-height:1.25}.project{font-size:12px;color:#92b4e8;margin-bottom:10px}.badge{display:inline-block;font-size:11px;font-weight:bold;padding:5px 9px;border-radius:14px;white-space:nowrap;background:#364e70;color:#e7efff}.badge.good{background:#087b57;color:#eafff7}.badge.warn{background:#785900;color:#fff2bf}.badge.off{background:#553c55;color:#ffe2fa}.dnsline{margin-top:11px;padding-top:10px;border-top:1px solid #1c3c70}.label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8eaddc;margin-bottom:5px}.address{display:flex;gap:7px;align-items:center;justify-content:space-between;font:14px Consolas,monospace;overflow-wrap:anywhere}.address span{min-width:0;overflow-wrap:anywhere}.copy{background:#124c99;color:white;border:1px solid #3189e7;border-radius:5px;padding:7px 9px;cursor:pointer;font-size:11px;flex-shrink:0}.copy:hover{background:#176cc8}.alternates{font:12px Consolas,monospace;color:#d0e3ff;overflow-wrap:anywhere;line-height:1.6}.alternates .alt{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:5px}.notes{font-size:11px;color:#8faad4;line-height:1.5;margin-top:10px}.empty{grid-column:1/-1;text-align:center;padding:35px;border:1px solid var(--line);background:#0a1b3c;border-radius:8px;color:#a9bbdf}
+footer{border-top:1px solid #1c447f;margin-top:30px;background:#06102b;color:#819bc5}.foot{max-width:1240px;margin:auto;padding:18px 20px;font-size:12px;line-height:1.6}
+@media(max-width:900px){.head{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.banner{padding:18px}.toolbar{flex-direction:column}.toolbar select{max-width:none}}
+@media(max-width:560px){main{padding:13px}.grid{grid-template-columns:1fr}.cover{height:165px}.brand h1{font-size:21px}.logo{font-size:30px}.nav a{padding:9px}.banner h2{font-size:20px}.orb{font-size:30px}}
 </style>
 </head>
-<body>
-<div class="topline"></div>
-<header><div class="head-inner">
-  <div class="brand"><div class="ps-mark">PS3</div><div><h1>PS3 Revival Hub</h1><p class="tagline">Baza społecznościowych serwerów i adresów DNS dla PlayStation 3</p></div></div>
-</div></header>
-<nav><div class="nav-inner"><a href="#baza">Baza DNS</a><a href="#jak-dziala">Jak korzystać</a><a href="#info">O projekcie</a></div></nav>
+<body><div class="top"></div>
+<header><div class="head"><div class="brand"><div class="logo">PS3<small>REVIVAL</small></div><div><h1>Revival Hub</h1><p>Odkryj gry, które znów łączą graczy</p></div></div><nav class="nav"><a href="#games">Sklep gier</a><a href="#projects">Projekty DNS</a><a href="#how">Jak zacząć</a><a href="#about">O projekcie</a></nav></div></header>
 <main>
-<section class="hero" id="jak-dziala"><h2>Witaj ponownie w świecie PS3</h2><p>Znajdź grę, sprawdź główny adres DNS oraz inne adresy zgłoszone dla tego samego projektu. Wybieraj alternatywne adresy tylko wtedy, gdy zostały potwierdzone jako działające.</p>
-<div class="statusbar"><span class="pill">Klasyczny wygląd w stylu dawnych portali</span><span class="pill">Wyszukiwarka gier</span><span class="pill">Kopiowanie DNS jednym kliknięciem</span></div></section>
-<section id="baza"><h2 class="section-title">Baza gier i DNS</h2>
-<div class="controls"><input id="search" type="search" placeholder="Szukaj gry, projektu lub adresu DNS…"><select id="status"><option value="">Wszystkie statusy</option><option value="Działa">Działa</option><option value="Wymaga weryfikacji">Wymaga weryfikacji</option><option value="Do potwierdzenia">Do potwierdzenia</option></select></div>
-<p id="count" class="project">Wczytywanie bazy…</p><div id="games" class="cards"></div>
-</section>
-<section id="info"><h2 class="section-title">O projekcie</h2><div class="hero"><p>PS3 Revival Hub to niezależna, społecznościowa baza informacji. Nie jest powiązana z Sony. Dostępność serwerów zależy od projektów zewnętrznych i może się zmieniać. Jeśli znasz działający alternatywny DNS, zgłoś go wraz ze źródłem lub potwierdzeniem.</p></div></section>
-</main>
-<footer><div class="foot-inner">PS3 Revival Hub · Projekt społecznościowy · Nieoficjalna strona, niezwiązana z Sony Interactive Entertainment.</div></footer>
-<script src="config.js"></script>
-<script>
-const csvUrl = (window.PS3_CONFIG && window.PS3_CONFIG.csvUrl) || "";
-const $ = id => document.getElementById(id);
-function parseCSV(text){
- const rows=[]; let row=[], cell="", quoted=false;
- for(let i=0;i<text.length;i++){const ch=text[i], next=text[i+1];
-  if(ch==='"'&&quoted&&next==='"'){cell+='"';i++}
-  else if(ch==='"')quoted=!quoted;
-  else if(ch===','&&!quoted){row.push(cell);cell=""}
-  else if((ch==='\n'||ch==='\r')&&!quoted){if(ch==='\r'&&next==='\n')i++;row.push(cell);if(row.some(v=>v.trim()))rows.push(row);row=[];cell=""}
-  else cell+=ch;
- }
- if(cell.length||row.length){row.push(cell);rows.push(row)}
- if(!rows.length)return [];
- const heads=rows.shift().map(h=>h.trim().replace(/^\uFEFF/,""));
- return rows.map(r=>Object.fromEntries(heads.map((h,i)=>[h,(r[i]||"").trim()])));
-}
-function pick(o,names){for(const n of names){if(o[n])return o[n]}return ""}
-function statusClass(s){let t=(s||"").toLowerCase();if(t.includes("działa")||t.includes("dziala")||t.includes("online"))return "Działa";if(t.includes("weryfik"))return "Wymaga weryfikacji";return "Do potwierdzenia"}
-function splitAddrs(s){return (s||"").split(/[;,|\n]+/).map(x=>x.trim()).filter(Boolean)}
-function card(g){
- const name=pick(g,["Gra","Nazwa gry","Game","Game name"])||"Gra bez nazwy";
- const project=pick(g,["Projekt / serwer","Projekt","Serwer","Project"])||"Projekt niepodany";
- const primary=pick(g,["Główny adres DNS","Glowny adres DNS","DNS główny","DNS — jedna kolumna","DNS","Adres DNS"])||"Do potwierdzenia";
- const others=pick(g,["Inne działające adresy DNS","Inne adresy DNS","Alternatywne DNS","DNS alternatywne"]);
- const statRaw=pick(g,["Status / pewność","Status","Status serwera"])||"Do potwierdzenia";
- const stat=statusClass(statRaw);
- const platform=pick(g,["Platforma"])||"PS3";
- const notes=pick(g,["Uwagi","Uwagi / pewność","Notatki"])||"";
- const source=pick(g,["Źródło / instrukcja","Źródło","Link"])||"";
- const all=[name,project,primary,others,statRaw,platform,notes,source].join(" ").toLowerCase();
- return {name,project,primary,others,stat,statRaw,platform,notes,source,all};
-}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function render(){
- const q=$("search").value.toLowerCase().trim(), st=$("status").value;
- const items=window.__games||[];
- const filtered=items.map(card).filter(g=>(!q||g.all.includes(q))&&(!st||g.stat===st));
- $("count").textContent=`Wyniki: ${filtered.length} · Łącznie w bazie: ${items.length}`;
- $("games").innerHTML=filtered.map((g,i)=>{
-  const alts=splitAddrs(g.others);
-  return `<article class="game"><div class="game-head"><div><h3>${esc(g.name)}</h3><div class="project">${esc(g.project)} · ${esc(g.platform)}</div></div><span class="status">${esc(g.statRaw||g.stat)}</span></div><div class="game-body"><div class="dns-label">Główny adres DNS</div><div class="dns-row"><div class="dns">${esc(g.primary)}</div><button class="copy" data-copy="${esc(g.primary)}">Kopiuj</button></div>${alts.length?`<div class="other"><div class="dns-label">Inne działające adresy DNS</div><ul class="other-list">${alts.map(a=>`<li>${esc(a)} <button class="copy" data-copy="${esc(a)}">Kopiuj</button></li>`).join("")}</ul></div>`:`<div class="other"><div class="dns-label">Inne działające adresy DNS</div><div class="notes">Brak potwierdzonych alternatyw w bazie.</div></div>`}<div class="notes">${g.notes?esc(g.notes):""}${g.source?`<br>Źródło: ${esc(g.source)}`:""}</div></div></article>`
- }).join("")||'<div class="empty">Brak wyników. Zmień frazę lub filtr.</div>';
-}
-async function load(){
- if(!csvUrl){$("count").textContent="Brak adresu CSV. Uzupełnij config.js.";return}
- try{const res=await fetch(csvUrl,{cache:"no-store"});if(!res.ok)throw new Error("HTTP "+res.status);const txt=await res.text();window.__games=parseCSV(txt);render()}
- catch(e){$("count").textContent="Nie udało się wczytać CSV. Sprawdź publikację arkusza i adres w config.js."; $("games").innerHTML='<div class="empty">Baza jest chwilowo niedostępna. Sprawdź publiczny link CSV w config.js.</div>'}
-}
-$("search").addEventListener("input",render);$("status").addEventListener("change",render);
-document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.getAttribute("data-copy"));b.textContent="Skopiowano!";setTimeout(()=>b.textContent="Kopiuj",1200)}catch{alert("Nie udało się skopiować automatycznie. Zaznacz adres i skopiuj ręcznie.")}});
-load();
-</script>
-</body>
-</html>
+<section class="banner"><div><h2>Twoja biblioteka gier online na PS3</h2><p>Znajdź projekt, sprawdź główny DNS i alternatywne adresy.<br>Wybierz grę i skopiuj adres bez przepisywania.</p></div><div class="orb">△ ○ × □</div></section>
+<div class="toolbar"><input id="search" type="search" placeholder="⌕  Wyszukaj grę lub projekt…"><select id="status"><option value="">Wszystkie statusy</option><option value="good">Działające</option><option value="warn">Wymaga weryfikacji</option><option value="off">Do potwierdzenia / offline</option></select></div>
+<div class="tabs" id="tabs"><button class="tab active" data-cat="">Wszystkie gry</button><button class="tab" data-cat="FPS">FPS</button><button class="tab" data-cat="Wyścigi">Wyścigi</button><button class="tab" data-cat="Akcja">Akcja</button><button class="tab" data-cat="Sport">Sport</button><button class="tab" data-cat="Ulubione">♥ Ulubione</button></div>
+<div class="summary"><span id="count">Wczytywanie biblioteki…</span><span>PS3 REVIVAL HUB · NIEOFICJALNA BAZA</span></div>
+<section id="games" class="grid"></section>
+<section id="how" style="margin-top:26px"><div class="banner"><div><h2>Jak połączyć się z serwerem?</h2><p>Wybierz projekt i skopiuj główny adres DNS. Alternatywne adresy pokazujemy osobno — tylko wtedy, gdy znajdują się w arkuszu.</p></div></div></section>
+<section id="projects" style="margin-top:18px"><h2 style="font-size:18px">Projekty i społeczność</h2><p style="color:#a9bbdf">Informacje o projektach pochodzą z publicznej bazy. Dostępność może się zmieniać.</p></section>
+<section id="about" style="margin-top:18px;color:#8faad4;font-size:12px">PS3 Revival Hub to niezależny projekt społecznościowy, niepowiązany z Sony Interactive Entertainment.</section>
+</main><footer><div class="foot">PS3 Revival Hub · Wspieramy zachowanie trybów online klasycznych gier · Nieoficjalna strona.</div></footer>
+<script src="config.js"></script><script>
+const csvUrl=(window.PS3_CONFIG&&window.PS3_CONFIG.csvUrl)||"";
+const $=id=>document.getElementById(id);let games=[],category="",favorites=new Set();
+function parseCSV(text){let rows=[],row=[],cell="",q=false;for(let i=0;i<text.length;i++){let c=text[i],n=text[i+1];if(c==='"'&&q&&n==='"'){cell+='"';i++}else if(c==='"')q=!q;else if(c===','&&!q){row.push(cell);cell=""}else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))rows.push(row);row=[];cell=""}else cell+=c}if(cell||row.length){row.push(cell);rows.push(row)}if(!rows.length)return[];let h=rows.shift().map(x=>x.trim().replace(/^\uFEFF/,""));return rows.map(r=>Object.fromEntries(h.map((x,i)=>[x,(r[i]||"").trim()])))}
+function pick(o,keys){for(let k of keys)if(o[k])return o[k];return""}
+function split(s){return(s||"").split(/[;,\n|]+/).map(x=>x.trim()).filter(Boolean)}
+function status(s){s=(s||"").toLowerCase();if(/działa|dziala|online|aktywn/.test(s))return"good";if(/weryfik|community|zgłosz/.test(s))return"warn";return"off"}
+function normalize(o){let name=pick(o,["Gra","Nazwa gry","Game","Game name"])||"Gra bez nazwy",s=pick(o,["Status / pewność","Status","Status serwera"])||"Do potwierdzenia";return{name,project:pick(o,["Projekt / serwer","Projekt","Serwer","Project"]),primary:pick(o,["Główny adres DNS","Glowny adres DNS","DNS główny","DNS — jedna kolumna","DNS","Adres DNS"])||"Do potwierdzenia",alts:split(pick(o,["Inne działające adresy DNS","Inne adresy DNS","Alternatywne DNS","DNS alternatywne"])),platform:pick(o,["Platforma"])||"PS3",rawStatus:s,st:status(s),notes:pick(o,["Uwagi","Uwagi / pewność","Notatki"]),source:pick(o,["Źródło / instrukcja","Źródło","Link"]),image:pick(o,["Logo gry","Logo","Okładka","Obraz","Image URL","Cover URL"]),category:pick(o,["Kategoria","Gatunek","Category"]),all:Object.values(o).join(" ").toLowerCase()}}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+const palettes=[["#1764a8","#071a42"],["#8c4d20","#20152a"],["#285b68","#101a38"],["#763b32","#1a1026"],["#315a9d","#10152b"],["#73612c","#191b2b"]];
+function render(){let q=$("search").value.toLowerCase().trim(),st=$("status").value;let list=games.filter(g=>(!q||g.all.includes(q)||g.name.toLowerCase().includes(q))&&(!st||g.st===st)&&(!category||category==="Ulubione"?(!category||favorites.has(g.name)):((g.category||"").toLowerCase().includes(category.toLowerCase())||(!g.category&&category==="Akcja"&&/battlefield|killzone|resistance|call of duty|uncharted/i.test(g.name))||(!g.category&&category==="FPS"&&/battlefield|killzone|resistance|call of duty/i.test(g.name))||(!g.category&&category==="Wyścigi"&&/motorstorm|gran turismo|wipeout/i.test(g.name))||(!g.category&&category==="Sport"&&/fifa|nba|nhl|pes|football/i.test(g.name)))));$("count").textContent=`${list.length} gier · ${games.length} pozycji w bazie`;$("games").innerHTML=list.map((g,i)=>{let p=palettes[i%palettes.length];return `<article class="game"><div class="cover" style="--c1:${p[0]};--c2:${p[1]}">${g.image?`<img src="${esc(g.image)}" alt="Grafika ${esc(g.name)}" loading="lazy" onerror="this.remove()">`:""}<span class="platform">PS3</span><div class="mark">${esc(g.name)}</div><button class="fav" data-fav="${esc(g.name)}" title="Ulubione">${favorites.has(g.name)?"★":"☆"}</button></div><div class="details"><div class="title-row"><div><h3>${esc(g.name)}</h3><div class="project">${esc(g.project||"Projekt niepodany")}</div></div><span class="badge ${g.st}">${g.st==="good"?"Działające":g.st==="warn"?"Weryfikacja":"Do potwierdzenia"}</span></div><div class="dnsline"><div class="label">Główny adres DNS</div><div class="address"><span>${esc(g.primary)}</span><button class="copy" data-copy="${esc(g.primary)}">Kopiuj</button></div></div><div class="dnsline"><div class="label">Inne działające DNS-y</div>${g.alts.length?`<div class="alternates">${g.alts.map(a=>`<div class="alt"><span>${esc(a)}</span><button class="copy" data-copy="${esc(a)}">Kopiuj</button></div>`).join("")}</div>`:`<div class="alternates">Brak potwierdzonych alternatyw</div>`}</div>${g.notes||g.source?`<div class="notes">${esc(g.notes)}${g.source?`<br>Źródło: ${esc(g.source)}`:""}</div>`:""}</div></article>`}).join("")||'<div class="empty">Nie znaleziono gier. Spróbuj zmienić wyszukiwanie lub filtr.</div>'}
+async function load(){if(!csvUrl){$("count").textContent="Brak linku CSV w config.js";return}try{let r=await fetch(csvUrl,{cache:"no-store"});if(!r.ok)throw Error(r.status);games=(parseCSV(await r.text())).map(normalize);render()}catch(e){$("count").textContent="Nie udało się wczytać arkusza";$("games").innerHTML='<div class="empty">Sprawdź, czy arkusz został opublikowany jako CSV i czy link w config.js jest poprawny.</div>'}}
+$("search").addEventListener("input",render);$("status").addEventListener("change",render);document.querySelectorAll("[data-cat]").forEach(b=>b.addEventListener("click",()=>{category=b.dataset.cat;document.querySelectorAll("[data-cat]").forEach(x=>x.classList.toggle("active",x===b));render()}));document.addEventListener("click",async e=>{let f=e.target.closest("[data-fav]");if(f){let n=f.dataset.fav;favorites.has(n)?favorites.delete(n):favorites.add(n);render();return}let b=e.target.closest("[data-copy]");if(!b)return;let val=b.dataset.copy;try{await navigator.clipboard.writeText(val);b.textContent="Skopiowano";setTimeout(()=>b.textContent="Kopiuj",1000)}catch{prompt("Skopiuj adres DNS:",val)}});load();
+</script></body></html>

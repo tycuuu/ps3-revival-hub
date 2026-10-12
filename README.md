@@ -1,29 +1,18 @@
-# PS3 Revival Hub — gotowy pakiet
+# PS3 Revival Hub — styl PS Store
 
-## Pliki
-- `index.html` — klasyczna strona retro, wyszukiwarka, filtry i kopiowanie adresów DNS.
-- `config.js` — ustawiony na nowy opublikowany link CSV.
-- `README.md` — instrukcja.
+Wgraj `index.html` oraz `config.js` do głównego katalogu repozytorium GitHub Pages i zastąp istniejące pliki.
 
-## Źródło danych
-`https://docs.google.com/spreadsheets/d/e/2PACX-1vRtl-fj4jqAcie8rGQ0iI7HMg5C3JnzaUFZYbP9twG4YYK93OlqeVNOYjfswwhx0g/pub?gid=1640242559&single=true&output=csv`
-
-## Wgranie na GitHub Pages
-1. Otwórz repozytorium `tycuuu/ps3-revival-hub`.
-2. Zastąp istniejący `index.html` plikiem z tego pakietu.
-3. Zastąp istniejący `config.js` plikiem z tego pakietu.
-4. Zapisz przez Commit changes.
-
-## Oczekiwane nagłówki CSV
-Strona rozpoznaje m.in.:
+Strona pobiera dane z publicznego CSV ustawionego w `config.js`. Rozpoznaje kolumny:
 - `Gra`
 - `Projekt / serwer`
-- `Główny adres DNS` (obsługuje też wariant `DNS główny`)
+- `Główny adres DNS` (lub `DNS główny`)
 - `Inne działające adresy DNS`
 - `Platforma`
 - `Status / pewność` lub `Status`
 - `Uwagi` / `Uwagi / pewność`
-- `Źródło / instrukcja`
+- opcjonalnie `Logo gry` / `Okładka` / `Image URL` (pełny, publiczny URL do obrazka)
+- opcjonalnie `Kategoria` / `Gatunek`
 
-## Uwaga
-Nie udało się niezależnie odczytać zawartości nowego CSV w tym środowisku, więc przed publikacją nie mogłem potwierdzić rzeczywistych nagłówków ani danych. Jeśli karta używa innych nazw kolumn, dostosuj nagłówki albo napisz, jakie są, a dopasuję parser.
+Jeśli podasz w arkuszu kolumnę `Logo gry` z publicznym linkiem do obrazka, karta pokaże grafikę. Jeśli jej brak, strona wyświetli stylizowany tytuł gry. Nie wbudowano niezweryfikowanych, przypadkowych logotypów.
+
+Uwaga: nowy CSV nie został niezależnie odczytany w tym środowisku, więc nie potwierdzono nagłówków. Jeśli nazwy kolumn są inne, parser trzeba dopasować.
