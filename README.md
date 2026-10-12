@@ -1,7 +1,26 @@
-PS3 Revival Hub — poprawiona wersja
+# PS3 Revival Hub
 
-Najważniejsza zmiana: adres CSV jest wpisany bezpośrednio w index.html, więc strona nie zależy od config.js.
-Dodatkowo dodano limit czasu pobierania i komunikat błędu zamiast nieskończonego ładowania.
+Statyczna strona katalogowa dla społecznościowych projektów online gier PlayStation 3. Katalog jest przechowywany w `data/games.json`; strona nie pobiera już danych z Google Sheets. Zmiana bazy polega na edycji tego pliku i opublikowaniu zmian w repozytorium.
 
-Wgraj index.html do repozytorium, zastępując dotychczasowy plik. config.js jest dołączony, ale index.html go nie wymaga.
-Uwaga: jeśli arkusz CSV jest niedostępny albo blokowany przez przeglądarkę, strona pokaże komunikat z linkiem do bezpośredniego sprawdzenia CSV.
+## Co zawiera strona
+
+- wyszukiwarkę gier i projektów oraz filtry gatunku i statusu;
+- karty gier z okładkami pobieranymi na żądanie z Wikimedia Commons/Wikipedii, jeśli są dostępne;
+- projekty powiązane z grą, linki do ich stron i statusów oraz publiczne linki społeczności;
+- osobne pola DNS i przyciski kopiowania;
+- opisy ostrzegające o wpisach niepotwierdzonych i adresach testowych.
+
+Strona jest niezależnym projektem społecznościowym i nie jest powiązana z Sony Interactive Entertainment. Statusy w katalogu są zgłoszeniami społeczności. DNS sam nie gwarantuje działania gry; projekt może wymagać aktywnych serwerów lub dodatkowej konfiguracji. Wewnętrzne odnośniki do prywatnych kanałów i wiadomości Discord nie są publikowane.
+
+## Edycja katalogu
+
+Edytuj `data/games.json`. Każdy wpis gry zawiera tytuł, platformę, gatunek, status, tytuł artykułu do wyszukania okładki oraz tablicę `projects`. Projekt może zawierać:
+
+- `name` — nazwę projektu;
+- `url`, `statusUrl`, `community` — opcjonalne publiczne odnośniki;
+- `dns` i `alternates` — zgłoszone adresy;
+- `note` — uwagi o stanie lub wymaganej konfiguracji.
+
+Nie wpisuj prywatnych linków `discord.com/channels/...`. Zachowuj informację, czy adres jest lokalny lub wymaga weryfikacji.
+
+GitHub Pages może serwować plik bez procesu budowania. Po włączeniu Pages w ustawieniach repozytorium zmiany w gałęzi publikacyjnej pojawią się na witrynie.

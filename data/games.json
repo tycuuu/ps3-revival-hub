@@ -1,0 +1,620 @@
+[
+  {
+    "title": "Warhawk",
+    "platform": "PS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Warhawk Revived",
+        "url": "https://warhawk.gg/",
+        "statusUrl": "https://warhawk.gg/games",
+        "dns": "198.100.158.95",
+        "alternates": []
+      },
+      {
+        "name": "PSONE / Warhawk revival",
+        "dns": "185.194.142.4",
+        "alternates": [
+          "1.1.1.1",
+          "8.8.8.8"
+        ],
+        "note": "Wpis z bazy społecznościowej."
+      }
+    ],
+    "cover": "Warhawk (video game)"
+  },
+  {
+    "title": "Killzone 2",
+    "platform": "PS3 / RPCS3",
+    "category": "FPS",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "statusUrl": "https://psrewired.com/servers/21784",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1",
+          "198.100.158.95"
+        ]
+      }
+    ],
+    "cover": "Killzone 2"
+  },
+  {
+    "title": "Killzone 3",
+    "platform": "PS3 / RPCS3",
+    "category": "FPS",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "statusUrl": "https://psrewired.com/servers/23044",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1",
+          "198.100.158.95"
+        ]
+      }
+    ],
+    "cover": "Killzone 3"
+  },
+  {
+    "title": "MotorStorm",
+    "platform": "PS3 / RPCS3",
+    "category": "Wyścigi",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1"
+        ]
+      }
+    ],
+    "cover": "MotorStorm"
+  },
+  {
+    "title": "MotorStorm: Pacific Rift",
+    "platform": "PS3 / RPCS3",
+    "category": "Wyścigi",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1"
+        ]
+      }
+    ],
+    "cover": "MotorStorm: Pacific Rift"
+  },
+  {
+    "title": "MotorStorm: Apocalypse",
+    "platform": "PS3 / RPCS3",
+    "category": "Wyścigi",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1"
+        ]
+      }
+    ],
+    "cover": "MotorStorm: Apocalypse"
+  },
+  {
+    "title": "Resistance: Fall of Man",
+    "platform": "PS3 / RPCS3",
+    "category": "FPS",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "statusUrl": "https://psrewired.com/servers/20174",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1",
+          "198.100.158.95"
+        ]
+      }
+    ],
+    "cover": "Resistance: Fall of Man"
+  },
+  {
+    "title": "Resistance 2",
+    "platform": "PS3 / RPCS3",
+    "category": "FPS",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "statusUrl": "https://psrewired.com/servers/21734",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1",
+          "198.100.158.95"
+        ]
+      }
+    ],
+    "cover": "Resistance 2"
+  },
+  {
+    "title": "WWE 2K14",
+    "platform": "PS3 / RPCS3",
+    "category": "Sport",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Project Nexus",
+        "dns": "192.236.168.216",
+        "alternates": [
+          "192.255.226.201"
+        ]
+      }
+    ],
+    "cover": "WWE 2K14"
+  },
+  {
+    "title": "WWE '13",
+    "platform": "PS3 / RPCS3",
+    "category": "Sport",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Project Nexus",
+        "dns": "192.236.168.216",
+        "alternates": [
+          "192.255.226.201"
+        ]
+      }
+    ],
+    "cover": "WWE '13"
+  },
+  {
+    "title": "WWE '12",
+    "platform": "PS3 / RPCS3",
+    "category": "Sport",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Project Nexus",
+        "dns": "192.236.168.216",
+        "alternates": [
+          "192.255.226.201"
+        ]
+      }
+    ],
+    "cover": "WWE '12"
+  },
+  {
+    "title": "TNA iMPACT!",
+    "platform": "PS3 / RPCS3",
+    "category": "Sport",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Project Nexus",
+        "dns": "192.236.168.216",
+        "alternates": [
+          "192.255.226.201"
+        ]
+      }
+    ],
+    "cover": "TNA iMPACT!"
+  },
+  {
+    "title": "Lucha Libre AAA: Héroes del Ring",
+    "platform": "PS3",
+    "category": "Sport",
+    "status": "Wymaga konfiguracji",
+    "projects": [
+      {
+        "name": "Project Nexus",
+        "dns": "192.236.168.216",
+        "alternates": [
+          "192.255.226.201"
+        ],
+        "note": "Wpis wymaga HEN/CFW i poprawki gry."
+      }
+    ],
+    "cover": "Lucha Libre AAA: Heroes del Ring"
+  },
+  {
+    "title": "Medal of Honor (2010)",
+    "platform": "PS3",
+    "category": "FPS",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "Project Neptune",
+        "dns": "128.140.0.23",
+        "alternates": [],
+        "note": "DNS pochodzi ze starszego źródła społecznościowego; wymaga weryfikacji."
+      }
+    ],
+    "cover": "Medal of Honor (2010 video game)"
+  },
+  {
+    "title": "Battlefield: Bad Company",
+    "platform": "PS3",
+    "category": "FPS",
+    "status": "Test lokalny",
+    "projects": [
+      {
+        "name": "FESL — test lokalny",
+        "dns": "192.168.2.200",
+        "alternates": [],
+        "note": "To prywatny adres testowy, nie publiczny DNS. Notatka źródłowa: Master/FESL 18800; Theater 18805."
+      }
+    ],
+    "cover": "Battlefield: Bad Company"
+  },
+  {
+    "title": "ModNation Racers",
+    "platform": "PS3 / RPCS3",
+    "category": "Wyścigi",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "ModNation Racers Revival",
+        "dns": "45.32.179.33",
+        "alternates": [],
+        "note": "Adres backendu; użycie jako DNS wymaga weryfikacji."
+      }
+    ],
+    "cover": "ModNation Racers"
+  },
+  {
+    "title": "SOCOM",
+    "platform": "PS3",
+    "category": "Akcja",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "PSONE / PS Rewired",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "1.1.1.1"
+        ],
+        "note": "Konkretny tytuł SOCOM wymaga doprecyzowania."
+      }
+    ],
+    "cover": "SOCOM U.S. Navy SEALs Confrontation"
+  },
+  {
+    "title": "Unreal Tournament 3",
+    "platform": "PS3 / RPCS3",
+    "category": "FPS",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "UT3MOD / 333networks",
+        "dns": "",
+        "alternates": [],
+        "note": "Dane serwerów są udostępniane przez infrastrukturę 333networks."
+      }
+    ],
+    "cover": "Unreal Tournament 3"
+  },
+  {
+    "title": "PlayStation Home",
+    "platform": "PS3 / RPCS3",
+    "category": "Społeczność",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Destination Home Online",
+        "url": "https://destinationhome.online/",
+        "statusUrl": "https://destinationhome.online/players",
+        "community": "https://discord.gg/playstationhome",
+        "dns": "52.86.120.101",
+        "alternates": []
+      },
+      {
+        "name": "Destination Home / Home Laboratory",
+        "dns": "",
+        "alternates": [],
+        "note": "Źródło społecznościowe raportuje lobby i graczy."
+      }
+    ],
+    "cover": "PlayStation Home"
+  },
+  {
+    "title": "Test Drive Unlimited 2",
+    "platform": "PS3",
+    "category": "Wyścigi",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "TDU World",
+        "url": "https://www.tduworld.com/",
+        "dns": "",
+        "alternates": [],
+        "note": "Licznik PS3 Online jest dostępny na stronie projektu."
+      }
+    ],
+    "cover": "Test Drive Unlimited 2"
+  },
+  {
+    "title": "Uncharted 2: Among Thieves",
+    "platform": "PS3 / RPCS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Uncharted Reloaded",
+        "dns": "51.75.22.125",
+        "alternates": []
+      },
+      {
+        "name": "The Uncharted Emulation Team",
+        "community": "https://discord.gg/jt3MjXXfu",
+        "dns": "149.104.121.241",
+        "alternates": []
+      }
+    ],
+    "cover": "Uncharted 2: Among Thieves"
+  },
+  {
+    "title": "Uncharted 3: Drake's Deception",
+    "platform": "PS3 / RPCS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Uncharted Reloaded",
+        "dns": "51.75.22.125",
+        "alternates": []
+      }
+    ],
+    "cover": "Uncharted 3: Drake's Deception"
+  },
+  {
+    "title": "The Last of Us Factions",
+    "platform": "PS3 / RPCS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Revival / self-hosted",
+        "dns": "",
+        "alternates": [],
+        "note": "Brak potwierdzonego DNS."
+      }
+    ],
+    "cover": "The Last of Us"
+  },
+  {
+    "title": "Demon's Souls",
+    "platform": "PS3 / RPCS3",
+    "category": "RPG",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "The Archstones",
+        "url": "https://thearchstones.com/",
+        "dns": "142.93.245.186",
+        "alternates": [
+          "198.100.158.95"
+        ]
+      },
+      {
+        "name": "Pozostałe projekty prywatnych serwerów",
+        "dns": "",
+        "alternates": [],
+        "note": "Nie ma jednego wspólnego DNS."
+      }
+    ],
+    "cover": "Demon's Souls (2009 video game)"
+  },
+  {
+    "title": "Twisted Metal Black Online",
+    "platform": "PS3",
+    "category": "Akcja",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "PSONE",
+        "dns": "",
+        "alternates": [],
+        "note": "DNS wymaga weryfikacji."
+      }
+    ],
+    "cover": "Twisted Metal: Black"
+  },
+  {
+    "title": "WipEout",
+    "platform": "PS3",
+    "category": "Wyścigi",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "PSONE",
+        "dns": "",
+        "alternates": [],
+        "note": "DNS wymaga weryfikacji."
+      }
+    ],
+    "cover": "Wipeout HD"
+  },
+  {
+    "title": "Battlefield 1943",
+    "platform": "PS3",
+    "category": "FPS",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Arcadia",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "198.100.158.95"
+        ],
+        "note": "Testowane według bazy społecznościowej."
+      }
+    ],
+    "cover": "Battlefield 1943"
+  },
+  {
+    "title": "Battlefield: Bad Company 2",
+    "platform": "PS3",
+    "category": "FPS",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "Arcadia / PS Restored",
+        "url": "https://psrestored.online/bfbc2?server=conquest",
+        "dns": "165.227.128.12",
+        "alternates": [
+          "67.222.156.250"
+        ],
+        "note": "Serwery PS Restored są śledzone osobno przez bota Discord."
+      }
+    ],
+    "cover": "Battlefield: Bad Company 2"
+  },
+  {
+    "title": "Call of Duty: World at War",
+    "platform": "PS3 / RPCS3",
+    "category": "FPS",
+    "status": "Nie działa",
+    "projects": [
+      {
+        "name": "PS Rewired",
+        "url": "https://psrewired.com/",
+        "dns": "67.222.156.250",
+        "alternates": [
+          "198.100.158.95"
+        ],
+        "note": "Oznaczone jako niedziałające w bazie źródłowej."
+      }
+    ],
+    "cover": "Call of Duty: World at War"
+  },
+  {
+    "title": "The Lord of the Rings: Conquest",
+    "platform": "PS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Arcadia",
+        "dns": "67.222.156.250",
+        "alternates": []
+      }
+    ],
+    "cover": "The Lord of the Rings: Conquest"
+  },
+  {
+    "title": "Medal of Honor",
+    "platform": "PS3",
+    "category": "FPS",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Arcadia",
+        "dns": "67.222.156.250",
+        "alternates": []
+      }
+    ],
+    "cover": "Medal of Honor (2010 video game)"
+  },
+  {
+    "title": "Mercenaries 2: World in Flames",
+    "platform": "PS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Arcadia",
+        "dns": "67.222.156.250",
+        "alternates": []
+      }
+    ],
+    "cover": "Mercenaries 2: World in Flames"
+  },
+  {
+    "title": "PlayStation All-Stars Battle Royale",
+    "platform": "PS3",
+    "category": "Bijatyki",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "All-Stars Awakened",
+        "community": "https://discord.gg/SjETUJpmp",
+        "dns": "129.153.39.127",
+        "alternates": []
+      },
+      {
+        "name": "Historyczny wpis społecznościowy",
+        "community": "https://discord.gg/8Uh5ucWXz",
+        "dns": "",
+        "alternates": [],
+        "note": "Wpis historyczny; aktualność do potwierdzenia."
+      }
+    ],
+    "cover": "PlayStation All-Stars Battle Royale"
+  },
+  {
+    "title": "Starhawk",
+    "platform": "PS3",
+    "category": "Akcja",
+    "status": "Społecznościowy",
+    "projects": [
+      {
+        "name": "Warhawk Revived",
+        "url": "https://warhawk.gg/",
+        "community": "https://discord.com/invite/warhawkrevived",
+        "dns": "198.100.158.95",
+        "alternates": []
+      }
+    ],
+    "cover": "Starhawk (video game)"
+  },
+  {
+    "title": "The Last of Us",
+    "platform": "PS3 / RPCS3",
+    "category": "Akcja",
+    "status": "Do weryfikacji",
+    "projects": [
+      {
+        "name": "The Last of Us Factions",
+        "dns": "51.75.22.125",
+        "alternates": [],
+        "note": "Wpis ze źródła społecznościowego; szczegóły dostępu do społeczności nie są publiczne."
+      }
+    ],
+    "cover": "The Last of Us"
+  },
+  {
+    "title": "WipEout HD",
+    "platform": "PS3",
+    "category": "Wyścigi",
+    "status": "Działa",
+    "projects": [
+      {
+        "name": "Anti-Gravity Racing Foundation",
+        "url": "https://agracingfoundation.org/#WipEout%20HD",
+        "statusUrl": "https://agracingfoundation.org/status",
+        "community": "https://discord.gg/E3MqdVPdxf",
+        "dns": "147.135.213.57",
+        "alternates": [
+          "198.100.158.95"
+        ]
+      }
+    ],
+    "cover": "Wipeout HD"
+  }
+]
