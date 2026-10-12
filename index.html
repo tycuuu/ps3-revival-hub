@@ -1,96 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090d18">
-<title>PS3 Revival Hub — baza DNS</title>
-<meta name="description" content="Przejrzysta baza reaktywowanych gier online na PS3 i RPCS3: DNS, projekty, statusy i instrukcje.">
+<meta name="theme-color" content="#003791">
+<title>PS3 Revival Hub — Baza DNS</title>
 <style>
-:root{color-scheme:dark;--bg:#090d18;--panel:#111a2b;--panel2:#162239;--line:#273650;--text:#edf3ff;--muted:#9aabc5;--accent:#8b9cff;--green:#5cdb9b;--yellow:#ffd166;--red:#ff7b8b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#172449 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-a{color:#b8c5ff}.wrap{max-width:1160px;margin:auto;padding:28px 18px 60px}
-header{display:flex;align-items:center;gap:16px;margin:10px 0 28px}.logo{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,#6d7cff,#a56cff);display:grid;place-items:center;font-size:27px;box-shadow:0 8px 35px #6d7cff33}
-h1{font-size:clamp(1.65rem,4vw,2.5rem);line-height:1.1;margin:0} .sub{color:var(--muted);margin:6px 0 0}
-.pill{font-size:.78rem;color:#d9e0ff;background:#242e51;border:1px solid #3d4a77;border-radius:999px;padding:5px 10px;white-space:nowrap}
-.hero{border:1px solid var(--line);background:linear-gradient(135deg,#151f37,#101827);border-radius:24px;padding:24px;margin-bottom:22px;display:flex;justify-content:space-between;gap:18px;align-items:center}
-.hero h2{font-size:1.35rem;margin:0 0 6px}.hero p{margin:0;color:var(--muted);max-width:700px}.heroIcon{font-size:50px;opacity:.9}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 22px}.stat{background:var(--panel);border:1px solid var(--line);padding:14px 16px;border-radius:16px}.stat strong{font-size:1.55rem;display:block}.stat span{color:var(--muted);font-size:.85rem}
-.controls{display:grid;grid-template-columns:1fr 190px 190px;gap:10px;margin:18px 0}.field{width:100%;background:#0e1626;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:13px 14px;font:inherit;outline:none}.field:focus{border-color:var(--accent);box-shadow:0 0 0 3px #8b9cff22}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(160deg,var(--panel),#0e1625);border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}.cardtop{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.card h3{font-size:1.12rem;margin:0 0 4px}.project{color:var(--muted);font-size:.88rem}.status{font-size:.75rem;border-radius:999px;padding:5px 9px;background:#2a2d3d;border:1px solid #454b61;white-space:normal;text-align:center}.status.live{color:var(--green);background:#112d28;border-color:#245748}.status.check{color:var(--yellow);background:#322b19;border-color:#5a4924}.status.unknown{color:#ffb6c0;background:#321c27;border-color:#633041}
-.dnslabel{color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;margin-top:17px}.dnsrow{display:flex;align-items:center;gap:8px;margin-top:6px}.dns{font:600 .95rem ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;flex:1}.btn{border:1px solid #46558b;color:#e9ecff;background:#202b4b;border-radius:10px;padding:9px 12px;cursor:pointer;font:600 .85rem system-ui;white-space:nowrap}.btn:hover{background:#2c3a64}.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}.meta a{overflow-wrap:anywhere}.empty,.notice{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:16px;color:var(--muted)}.notice{margin-bottom:18px;font-size:.9rem}.notice strong{color:var(--text)}footer{color:var(--muted);font-size:.82rem;margin-top:28px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-@media(max-width:760px){.controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}.grid{grid-template-columns:1fr}.heroIcon{display:none}.hero{padding:20px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:1.25rem}}
+:root{--blue:#003791;--deep:#001f66;--light:#e7efff;--ink:#14213d;--muted:#58657b;--line:#b8c9e8;--bg:#f3f6fc;--white:#fff;--gold:#f5c542}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px Tahoma,Arial,sans-serif}
+a{color:var(--blue)}
+.topline{height:7px;background:var(--gold)}
+header{background:linear-gradient(110deg,var(--deep),var(--blue));color:white;border-bottom:4px solid #86a8e8}
+.head-inner{max-width:1120px;margin:auto;padding:22px 18px 18px}
+.brand{display:flex;align-items:center;gap:13px}
+.ps-mark{display:grid;place-items:center;width:48px;height:48px;border:2px solid #fff;border-radius:50%;font-weight:bold;font-size:19px;letter-spacing:-2px}
+h1{font-size:26px;line-height:1.2;margin:0}
+.tagline{margin:7px 0 0;color:#dbe7ff;font-size:13px}
+nav{background:#dbe7fb;border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1120px;margin:auto;padding:0 18px;display:flex;gap:4px;flex-wrap:wrap}
+nav a{display:inline-block;padding:12px 14px;text-decoration:none;color:#00266d;font-weight:bold;font-size:13px}
+nav a:first-child,nav a:hover{background:#fff}
+main{max-width:1120px;margin:22px auto;padding:0 18px}
+.hero{background:white;border:1px solid var(--line);box-shadow:0 2px 0 #d8e2f3;padding:18px;margin-bottom:18px}
+.hero h2{margin:0 0 8px;font-size:20px;color:var(--deep)}
+.hero p{margin:0;color:var(--muted);line-height:1.55}
+.statusbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pill{border:1px solid var(--line);background:#f7faff;padding:7px 10px;font-size:12px;color:#243e70}
+.controls{display:grid;grid-template-columns:1fr 220px;gap:10px;margin:18px 0}
+input,select{font:inherit;padding:11px;border:1px solid #9eb5dc;background:white;color:var(--ink);border-radius:0;min-width:0}
+.section-title{font-size:17px;border-bottom:2px solid var(--blue);padding-bottom:8px;margin:22px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.game{background:white;border:1px solid var(--line);box-shadow:0 2px 0 #d8e2f3}
+.game-head{background:#e8f0ff;border-bottom:1px solid var(--line);padding:12px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.game h3{font-size:16px;margin:0;color:#002d7b}
+.project{font-size:12px;color:var(--muted);margin-top:4px}
+.status{font-size:11px;border:1px solid #9eb5dc;padding:4px 6px;white-space:nowrap;background:#fff}
+.game-body{padding:13px 14px}
+.dns-label{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:bold;letter-spacing:.4px}
+.dns-row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.dns{font-family:Consolas,monospace;font-size:14px;font-weight:bold;overflow-wrap:anywhere}
+.copy{font:12px Tahoma,Arial,sans-serif;padding:6px 9px;background:var(--blue);color:#fff;border:1px solid var(--deep);cursor:pointer;flex-shrink:0}
+.copy:hover{background:var(--deep)}
+.other{margin-top:13px;padding-top:11px;border-top:1px dashed var(--line)}
+.other-list{margin:6px 0 0;padding-left:18px}
+.other-list li{margin:5px 0;font-family:Consolas,monospace;overflow-wrap:anywhere}
+.notes{margin-top:10px;font-size:12px;color:var(--muted);line-height:1.5}
+.empty{background:white;border:1px solid var(--line);padding:18px;color:var(--muted)}
+footer{margin-top:32px;background:#e2ebfb;border-top:1px solid var(--line);color:#445574}
+.foot-inner{max-width:1120px;margin:auto;padding:18px;font-size:12px;line-height:1.6}
+@media(max-width:680px){h1{font-size:21px}.controls{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.game-head{flex-direction:column}.status{align-self:flex-start}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header><div class="logo">🎮</div><div><h1>PS3 Revival Hub</h1><p class="sub">Baza DNS • reaktywowane serwery • PS3 & RPCS3</p></div><span class="pill">COMMUNITY DATABASE</span></header>
-<section class="hero"><div><h2>Znajdź grę. Sprawdź status. Skopiuj DNS.</h2><p>Jedno miejsce z informacjami o projektach przywracających tryby online na PlayStation 3. Statusy mogą się zmieniać — przed konfiguracją sprawdź instrukcję projektu.</p></div><div class="heroIcon">🌐</div></section>
-<div id="notice" class="notice"><strong>Źródło danych:</strong> <span id="sourceState">Ładowanie bazy…</span></div>
-<div class="stats"><div class="stat"><strong id="countGames">—</strong><span>gier na liście</span></div><div class="stat"><strong id="countProjects">—</strong><span>projektów / serwerów</span></div><div class="stat"><strong id="countConfirmed">—</strong><span>pozycji oznaczonych jako wspierane</span></div></div>
-<div class="controls"><input id="search" class="field" placeholder="Szukaj gry, projektu lub DNS…"><select id="platform" class="field"><option value="">Wszystkie platformy</option><option>PS3</option><option>RPCS3</option></select><select id="statusFilter" class="field"><option value="">Wszystkie statusy</option><option value="live">Wspierane</option><option value="check">Do sprawdzenia</option><option value="unknown">Niepotwierdzone</option></select></div>
-<div id="cards" class="grid"></div>
-<footer><span>PS3 Revival Hub — baza społecznościowa, niezwiązana z Sony.</span><span>DNS-y i statusy weryfikuj w instrukcji danego projektu.</span></footer>
-</div>
+<div class="topline"></div>
+<header><div class="head-inner">
+  <div class="brand"><div class="ps-mark">PS3</div><div><h1>PS3 Revival Hub</h1><p class="tagline">Baza społecznościowych serwerów i adresów DNS dla PlayStation 3</p></div></div>
+</div></header>
+<nav><div class="nav-inner"><a href="#baza">Baza DNS</a><a href="#jak-dziala">Jak korzystać</a><a href="#info">O projekcie</a></div></nav>
+<main>
+<section class="hero" id="jak-dziala"><h2>Witaj ponownie w świecie PS3</h2><p>Znajdź grę, sprawdź główny adres DNS oraz inne adresy zgłoszone dla tego samego projektu. Wybieraj alternatywne adresy tylko wtedy, gdy zostały potwierdzone jako działające.</p>
+<div class="statusbar"><span class="pill">Klasyczny wygląd w stylu dawnych portali</span><span class="pill">Wyszukiwarka gier</span><span class="pill">Kopiowanie DNS jednym kliknięciem</span></div></section>
+<section id="baza"><h2 class="section-title">Baza gier i DNS</h2>
+<div class="controls"><input id="search" type="search" placeholder="Szukaj gry, projektu lub adresu DNS…"><select id="status"><option value="">Wszystkie statusy</option><option value="Działa">Działa</option><option value="Wymaga weryfikacji">Wymaga weryfikacji</option><option value="Do potwierdzenia">Do potwierdzenia</option></select></div>
+<p id="count" class="project">Wczytywanie bazy…</p><div id="games" class="cards"></div>
+</section>
+<section id="info"><h2 class="section-title">O projekcie</h2><div class="hero"><p>PS3 Revival Hub to niezależna, społecznościowa baza informacji. Nie jest powiązana z Sony. Dostępność serwerów zależy od projektów zewnętrznych i może się zmieniać. Jeśli znasz działający alternatywny DNS, zgłoś go wraz ze źródłem lub potwierdzeniem.</p></div></section>
+</main>
+<footer><div class="foot-inner">PS3 Revival Hub · Projekt społecznościowy · Nieoficjalna strona, niezwiązana z Sony Interactive Entertainment.</div></footer>
 <script src="config.js"></script>
 <script>
-const demo = [
- {game:"Killzone 2",project:"PS Rewired",dns:"67.222.156.250",platform:"PS3 / RPCS3",status:"Wspierane przez projekt",statusType:"live",notes:"Sprawdź aktualną instrukcję projektu.",url:"https://psrewired.com/guides/ps3"},
- {game:"Warhawk",project:"PSONE / Warhawk revival",dns:"185.194.142.4",platform:"PS3",status:"Sprawdź aktualny status",statusType:"check",notes:"Adres wymaga potwierdzenia z bieżącą instrukcją.",url:"https://psone.online/"},
- {game:"Battlefield: Bad Company 2",project:"Projekty społecznościowe",dns:"Do potwierdzenia",platform:"PS3",status:"Niepotwierdzone",statusType:"unknown",notes:"Zweryfikuj, które tryby i serwery są obecnie dostępne.",url:"https://psrestored.online/"},
- {game:"Buzz! Quiz TV",project:"Buzz! Revival",dns:"Do potwierdzenia",platform:"PS3 / RPCS3",status:"DNS do potwierdzenia",statusType:"unknown",notes:"Sprawdź instrukcję projektu.",url:"https://www.buzz-revival.online/"},
- {game:"MotorStorm: Pacific Rift",project:"PS Rewired",dns:"67.222.156.250",platform:"PS3 / RPCS3",status:"Wspierane przez projekt",statusType:"live",notes:"Sprawdź wersję i instrukcję.",url:"https://psrewired.com/guides/ps3"}
-];
-function norm(v){return String(v??"").trim()}
-function csvParse(text){
- const out=[];let row=[],field="",quoted=false;
- for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];
-  if(c==='"'&&quoted&&n==='"'){field+='"';i++}
-  else if(c==='"')quoted=!quoted;
-  else if(c===','&&!quoted){row.push(field);field=""}
-  else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&n==='\n')i++;row.push(field);if(row.some(x=>x.trim()))out.push(row);row=[];field=""}
-  else field+=c;
+const csvUrl = (window.PS3_CONFIG && window.PS3_CONFIG.csvUrl) || "";
+const $ = id => document.getElementById(id);
+function parseCSV(text){
+ const rows=[]; let row=[], cell="", quoted=false;
+ for(let i=0;i<text.length;i++){const ch=text[i], next=text[i+1];
+  if(ch==='"'&&quoted&&next==='"'){cell+='"';i++}
+  else if(ch==='"')quoted=!quoted;
+  else if(ch===','&&!quoted){row.push(cell);cell=""}
+  else if((ch==='\n'||ch==='\r')&&!quoted){if(ch==='\r'&&next==='\n')i++;row.push(cell);if(row.some(v=>v.trim()))rows.push(row);row=[];cell=""}
+  else cell+=ch;
  }
- if(field.length||row.length){row.push(field);out.push(row)}
- if(!out.length)return [];
- const heads=out.shift().map(h=>h.trim().toLowerCase());
- return out.map(r=>Object.fromEntries(heads.map((h,i)=>[h,norm(r[i])]))).map(r=>({
-  game:r.gra||r.game||r.tytuł||r.tytul,
-  project:r["projekt / serwer"]||r.projekt||r.project||"",
-  dns:r["dns — jedna kolumna"]||r.dns||r["dns"]||"",
-  platform:r.platforma||r.platform||"PS3",
-  status:r.status||"Do sprawdzenia",
-  notes:r["uwagi / pewność"]||r.uwagi||r.notes||"",
-  url:r["źródło / instrukcja"]||r["zrodlo / instrukcja"]||r.url||""
- })).filter(r=>r.game);
+ if(cell.length||row.length){row.push(cell);rows.push(row)}
+ if(!rows.length)return [];
+ const heads=rows.shift().map(h=>h.trim().replace(/^\uFEFF/,""));
+ return rows.map(r=>Object.fromEntries(heads.map((h,i)=>[h,(r[i]||"").trim()])));
 }
-function statusType(s){let v=(s||"").toLowerCase();if(v.includes("live")||v.includes("wspierane")||v.includes("aktyw"))return "live";if(v.includes("niepotwier")||v.includes("do potwier")||v.includes("nieznan"))return "unknown";return "check"}
-function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function render(list){
- const q=document.querySelector("#search").value.toLowerCase(),p=document.querySelector("#platform").value,s=document.querySelector("#statusFilter").value;
- const filtered=list.filter(g=>(!q||[g.game,g.project,g.dns,g.notes].join(" ").toLowerCase().includes(q))&&(!p||(g.platform||"").toLowerCase().includes(p.toLowerCase()))&&(!s||(g.statusType||statusType(g.status))===s));
- document.querySelector("#countGames").textContent=list.length;
- document.querySelector("#countProjects").textContent=new Set(list.map(g=>g.project).filter(Boolean)).size;
- document.querySelector("#countConfirmed").textContent=list.filter(g=>(g.statusType||statusType(g.status))==="live").length;
- const root=document.querySelector("#cards");
- if(!filtered.length){root.innerHTML='<div class="empty">Nie znaleziono gier. Spróbuj innej frazy.</div>';return}
- root.innerHTML=filtered.map(g=>{let st=g.statusType||statusType(g.status),canCopy=g.dns&&!/do potwierdzenia|potwierdzenia|brak danych|nie ustalono/i.test(g.dns);
- return `<article class="card"><div class="cardtop"><div><h3>${escapeHtml(g.game)}</h3><div class="project">${escapeHtml(g.project||"Projekt niepodany")}</div></div><span class="status ${st}">${escapeHtml(g.status||"Do sprawdzenia")}</span></div><div class="dnslabel">DNS</div><div class="dnsrow"><div class="dns">${escapeHtml(g.dns||"Do potwierdzenia")}</div><button class="btn" ${canCopy?'data-copy="'+encodeURIComponent(g.dns)+'"':"disabled"}>Kopiuj</button></div><div class="meta"><span>${escapeHtml(g.platform||"PS3")}</span>${g.url&&/^https?:\/\//i.test(g.url)?`<a href="${escapeHtml(g.url)}" target="_blank" rel="noopener noreferrer">Instrukcja / źródło ↗</a>`:"<span>Brak linku do instrukcji</span>"}</div>${g.notes?`<p class="project" style="margin:12px 0 0">${escapeHtml(g.notes)}</p>`:""}</article>`}).join("");
- root.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(decodeURIComponent(b.dataset.copy));b.textContent="Skopiowano ✓";setTimeout(()=>b.textContent="Kopiuj",1400)}catch(e){b.textContent="Skopiuj ręcznie"}}));
+function pick(o,names){for(const n of names){if(o[n])return o[n]}return ""}
+function statusClass(s){let t=(s||"").toLowerCase();if(t.includes("działa")||t.includes("dziala")||t.includes("online"))return "Działa";if(t.includes("weryfik"))return "Wymaga weryfikacji";return "Do potwierdzenia"}
+function splitAddrs(s){return (s||"").split(/[;,|\n]+/).map(x=>x.trim()).filter(Boolean)}
+function card(g){
+ const name=pick(g,["Gra","Nazwa gry","Game","Game name"])||"Gra bez nazwy";
+ const project=pick(g,["Projekt / serwer","Projekt","Serwer","Project"])||"Projekt niepodany";
+ const primary=pick(g,["Główny adres DNS","Glowny adres DNS","DNS główny","DNS — jedna kolumna","DNS","Adres DNS"])||"Do potwierdzenia";
+ const others=pick(g,["Inne działające adresy DNS","Inne adresy DNS","Alternatywne DNS","DNS alternatywne"]);
+ const statRaw=pick(g,["Status / pewność","Status","Status serwera"])||"Do potwierdzenia";
+ const stat=statusClass(statRaw);
+ const platform=pick(g,["Platforma"])||"PS3";
+ const notes=pick(g,["Uwagi","Uwagi / pewność","Notatki"])||"";
+ const source=pick(g,["Źródło / instrukcja","Źródło","Link"])||"";
+ const all=[name,project,primary,others,statRaw,platform,notes,source].join(" ").toLowerCase();
+ return {name,project,primary,others,stat,statRaw,platform,notes,source,all};
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function render(){
+ const q=$("search").value.toLowerCase().trim(), st=$("status").value;
+ const items=window.__games||[];
+ const filtered=items.map(card).filter(g=>(!q||g.all.includes(q))&&(!st||g.stat===st));
+ $("count").textContent=`Wyniki: ${filtered.length} · Łącznie w bazie: ${items.length}`;
+ $("games").innerHTML=filtered.map((g,i)=>{
+  const alts=splitAddrs(g.others);
+  return `<article class="game"><div class="game-head"><div><h3>${esc(g.name)}</h3><div class="project">${esc(g.project)} · ${esc(g.platform)}</div></div><span class="status">${esc(g.statRaw||g.stat)}</span></div><div class="game-body"><div class="dns-label">Główny adres DNS</div><div class="dns-row"><div class="dns">${esc(g.primary)}</div><button class="copy" data-copy="${esc(g.primary)}">Kopiuj</button></div>${alts.length?`<div class="other"><div class="dns-label">Inne działające adresy DNS</div><ul class="other-list">${alts.map(a=>`<li>${esc(a)} <button class="copy" data-copy="${esc(a)}">Kopiuj</button></li>`).join("")}</ul></div>`:`<div class="other"><div class="dns-label">Inne działające adresy DNS</div><div class="notes">Brak potwierdzonych alternatyw w bazie.</div></div>`}<div class="notes">${g.notes?esc(g.notes):""}${g.source?`<br>Źródło: ${esc(g.source)}`:""}</div></div></article>`
+ }).join("")||'<div class="empty">Brak wyników. Zmień frazę lub filtr.</div>';
 }
 async function load(){
- const url=(window.PS3_REVIVAL_CONFIG||{}).csvUrl||"";
- let data=demo, state="Wyświetlam dane demonstracyjne. Podłącz kartę PUBLICZNE DNS w config.js, aby włączyć automatyczne aktualizacje.";
- if(url){
-  try{const res=await fetch(url,{cache:"no-store"});if(!res.ok)throw new Error("HTTP "+res.status);const text=await res.text();const parsed=csvParse(text);if(!parsed.length)throw new Error("CSV bez rozpoznanych wierszy");data=parsed;state="Połączono z Google Sheets. Dane pobrane przy otwarciu strony."; }
-  catch(e){state="Nie udało się pobrać arkusza — pokazuję dane demonstracyjne. Sprawdź publikację karty i link CSV."}
- }
- document.querySelector("#sourceState").textContent=state;
- render(data);
- document.querySelector("#search").oninput=()=>render(data);
- document.querySelector("#platform").onchange=()=>render(data);
- document.querySelector("#statusFilter").onchange=()=>render(data);
+ if(!csvUrl){$("count").textContent="Brak adresu CSV. Uzupełnij config.js.";return}
+ try{const res=await fetch(csvUrl,{cache:"no-store"});if(!res.ok)throw new Error("HTTP "+res.status);const txt=await res.text();window.__games=parseCSV(txt);render()}
+ catch(e){$("count").textContent="Nie udało się wczytać CSV. Sprawdź publikację arkusza i adres w config.js."; $("games").innerHTML='<div class="empty">Baza jest chwilowo niedostępna. Sprawdź publiczny link CSV w config.js.</div>'}
 }
+$("search").addEventListener("input",render);$("status").addEventListener("change",render);
+document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.getAttribute("data-copy"));b.textContent="Skopiowano!";setTimeout(()=>b.textContent="Kopiuj",1200)}catch{alert("Nie udało się skopiować automatycznie. Zaznacz adres i skopiuj ręcznie.")}});
 load();
 </script>
 </body>
