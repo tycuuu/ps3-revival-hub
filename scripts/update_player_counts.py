@@ -13,7 +13,7 @@ from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-SHEET_CSV = "https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/export?format=csv"
+SHEET_CSV = "https://docs.google.com/spreadsheets/d/1JyL-Pt7JU6uj0zA-pts3SPQFTGPYcluE/export?format=csv"
 OUTPUT = ROOT / "data" / "live-counts.json"
 USER_AGENT = "PS3-Revival-Hub/1.0 (community game count display)"
 BFBC2_SERVERS = {
@@ -120,6 +120,29 @@ def read_sheet() -> tuple[list[dict[str, str]], set[str]]:
         cells = [(row[i] if i < len(row) else "").strip() for i in range(9)]
         titles.add(cells[0].casefold())
         projects.append({"title": cells[0], "project": cells[1], "url": cells[2], "status_url": cells[3]})
+    if not titles:
+        normalize = lambda value: re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
+        title_headers = {"gra", "game", "title", "game title", "game name", "nazwa gry"}
+        project_headers = {"projekt", "project", "project name", "source"}
+        url_headers = {"url", "project url", "source url", "link"}
+        header_index = next(
+            (index for index, row in enumerate(rows) if any(normalize(cell) in title_headers for cell in row)),
+            None,
+        )
+        if header_index is not None:
+            headers = [normalize(cell) for cell in rows[header_index]]
+            title_index = next((i for i, name in enumerate(headers) if name in title_headers), 0)
+            project_index = next((i for i, name in enumerate(headers) if name in project_headers), None)
+            url_index = next((i for i, name in enumerate(headers) if name in url_headers), None)
+            for row in rows[header_index + 1 :]:
+                title = row[title_index].strip() if title_index < len(row) else ""
+                if not title:
+                    continue
+                titles.add(title.casefold())
+                project = row[project_index].strip() if project_index is not None and project_index < len(row) else ""
+                url = row[url_index].strip() if url_index is not None and url_index < len(row) else ""
+                if project:
+                    projects.append({"title": title, "project": project, "url": url, "status_url": ""})
     return projects, titles
 
 

@@ -2,12 +2,6 @@
 
 Strona pobiera dane z publicznego eksportu CSV arkusza Google Sheets przy każdym otwarciu. Łączy obie tabele po tytule gry; edycje w arkuszu pojawiają się po odświeżeniu witryny.
 
-## Poradniki i język
-
-Strona ma wspólną sekcję poradników PlayStation 3 i RPCS3 po polsku i angielsku. Język jest wybierany na podstawie ustawień językowych przeglądarki (`navigator.languages`); użytkownik może nadpisać wybór przyciskiem PL/EN, a ręczna preferencja jest zapamiętywana w `localStorage`. Karty projektów zawierają źródła i zgłoszone dane; ogólna konfiguracja jest opisana w osobnych poradnikach.
-
-Poradniki odsyłają do dokumentacji [PS Rewired dla PS3](https://psrewired.com/guides/ps3) oraz [RPCS3](https://psrewired.com/guides/rpcs3). Adres DNS należy zawsze dobrać do konkretnego projektu z arkusza. Strona [PS Restored /play](https://psrestored.online/play) jest podlinkowana jako dodatkowe źródło.
-
 ## Arkusz i logotypy
 
 Edytuj [arkusz PS3 DNS](https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/edit?usp=sharing). Nie zmieniaj wierszy nagłówków `Gra` ani `PS3 Online Multiplayer Games`.
