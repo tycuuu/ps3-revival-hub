@@ -1,18 +1,9 @@
-# PS3 Revival Hub — styl PS Store
+# PS3 Revival Hub — automatyczne grafiki
 
-Wgraj `index.html` oraz `config.js` do głównego katalogu repozytorium GitHub Pages i zastąp istniejące pliki.
+Pliki: `index.html`, `config.js`, `README.md`.
 
-Strona pobiera dane z publicznego CSV ustawionego w `config.js`. Rozpoznaje kolumny:
-- `Gra`
-- `Projekt / serwer`
-- `Główny adres DNS` (lub `DNS główny`)
-- `Inne działające adresy DNS`
-- `Platforma`
-- `Status / pewność` lub `Status`
-- `Uwagi` / `Uwagi / pewność`
-- opcjonalnie `Logo gry` / `Okładka` / `Image URL` (pełny, publiczny URL do obrazka)
-- opcjonalnie `Kategoria` / `Gatunek`
+Strona najpierw używa grafiki z kolumny `Logo gry`, `Okładka`, `Image URL` lub podobnej, jeśli została podana. W przeciwnym razie próbuje automatycznie znaleźć grafikę przez publiczne API Wikipedii (bez klucza API). Wynik może być grafiką artykułu, a nie zawsze dokładną okładką pudełkową PS3.
 
-Jeśli podasz w arkuszu kolumnę `Logo gry` z publicznym linkiem do obrazka, karta pokaże grafikę. Jeśli jej brak, strona wyświetli stylizowany tytuł gry. Nie wbudowano niezweryfikowanych, przypadkowych logotypów.
+SteamGridDB ma okładki i grafiki, ale wymaga klucza API. Nie wkładamy go do `index.html`, bo na GitHub Pages byłby publiczny. Aby mieć dokładne okładki PS3 dla wszystkich tytułów, można później uzupełnić kolumnę `Okładka` sprawdzonymi URL-ami.
 
-Uwaga: nowy CSV nie został niezależnie odczytany w tym środowisku, więc nie potwierdzono nagłówków. Jeśli nazwy kolumn są inne, parser trzeba dopasować.
+Wgraj `index.html` i `config.js` do repozytorium `tycuuu/ps3-revival-hub`, zastępując poprzednie pliki.
