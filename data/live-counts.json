@@ -1,27 +1,22 @@
 {
-  "checkedAt": "2026-10-12T17:55:37Z",
+  "checkedAt": "2026-10-12T18:10:21Z",
   "games": {
-    "buzz! quiz tv": {
-      "players": 1,
-      "source": "Buzz! Revival · PS3",
-      "checkedAt": "2026-10-12T17:55:37Z"
-    },
     "battlefield: bad company 2": {
-      "players": 23,
+      "players": 29,
       "source": "PS Restored · PSN / PS3",
-      "checkedAt": "2026-10-12T17:55:37Z",
+      "checkedAt": "2026-10-12T18:10:21Z",
       "servers": [
         {
           "name": "Conquest · Panama Canal",
-          "players": 13
+          "players": 14
         },
         {
           "name": "Conquest · Arica Harbor",
-          "players": 0
+          "players": 1
         },
         {
           "name": "Rush · Valparaiso",
-          "players": 9
+          "players": 13
         },
         {
           "name": "Squad Rush · Panama Canal",
@@ -44,6 +39,23 @@
           "players": 0
         }
       ]
+    },
+    "battlefield: bad company": {
+      "players": 7,
+      "source": "PS Restored · PSN / PS3",
+      "checkedAt": "2026-10-12T18:10:21Z",
+      "servers": [
+        {
+          "name": "BC Gold Rush · bc1-1",
+          "players": 7
+        }
+      ]
+    },
+    "buzz! quiz tv": {
+      "players": 1,
+      "source": "Buzz! Revival · PS3",
+      "checkedAt": "2026-10-12T17:55:37Z",
+      "stale": true
     }
   }
 }
