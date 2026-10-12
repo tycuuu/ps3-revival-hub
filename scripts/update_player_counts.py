@@ -26,6 +26,9 @@ BFBC2_SERVERS = {
     "Vietnam Conquest · Hill 137": "https://psrestored.online/bfbc2?server=s8&game=vietnam",
     "Vietnam Rush · Hill 137": "https://psrestored.online/bfbc2?server=s7&game=vietnam",
 }
+BFBC1_SERVERS = {
+    "BC Gold Rush · bc1-1": "https://psrestored.online/bfbc1?server=bc1-1",
+}
 
 
 class PageText(HTMLParser):
@@ -45,7 +48,7 @@ class PageText(HTMLParser):
         inside = parent_inside or values.get("id") == "server-panel"
         if values.get("id") == "server-panel":
             self.panel_found = True
-        if tag == "a" and inside and "/bfbc2/players/psn/" in (values.get("href") or ""):
+        if tag == "a" and inside and re.search(r"/bfbc[12]/players/psn/", values.get("href") or "", re.I):
             self.psn_links.add((values.get("href") or "").split("?", 1)[0].rstrip("/").casefold())
         if tag not in {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}:
             self._stack.append((tag, inside))
@@ -194,6 +197,15 @@ def main() -> None:
                 print(f"SKIP PS Restored {name}: {exc}")
         if servers:
             save_count("battlefield: bad company 2", sum(s["players"] for s in servers), "PS Restored · PSN / PS3", servers=servers)
+
+    servers = []
+    for name, url in BFBC1_SERVERS.items():
+        try:
+            servers.append({"name": name, "players": count_psrestored(url)})
+        except Exception as exc:
+            print(f"SKIP PS Restored {name}: {exc}")
+    if servers:
+        save_count("battlefield: bad company", sum(s["players"] for s in servers), "PS Restored · PSN / PS3", servers=servers)
 
     # Keep a last successful reading for up to 12 hours if a source is temporarily unavailable.
     for key, old in previous.items():

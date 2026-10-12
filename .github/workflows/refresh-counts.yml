@@ -1,6 +1,9 @@
 name: Refresh PS3 player counts
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "*/15 * * * *"
   workflow_dispatch:
@@ -25,16 +28,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Refresh primary DNS from the published sheet
+        run: python scripts/update_main_dns.py
       - name: Refresh supported PS3-only counts
         run: python scripts/update_player_counts.py
       - name: Save the updated snapshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/live-counts.json
+          git add data/live-counts.json data/main-dns.json
           if git diff --cached --quiet; then
-            echo "Player counts did not change."
+            echo "Player counts and primary DNS did not change."
           else
-            git commit -m "Refresh PS3 player count snapshot [skip ci]"
+            git commit -m "Refresh PS3 live data [skip ci]"
             git push
           fi
