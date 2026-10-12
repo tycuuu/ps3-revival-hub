@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-10-12T18:10:21Z",
+  "checkedAt": "2026-10-12T18:10:41Z",
   "games": {
     "battlefield: bad company 2": {
       "players": 29,
       "source": "PS Restored · PSN / PS3",
-      "checkedAt": "2026-10-12T18:10:21Z",
+      "checkedAt": "2026-10-12T18:10:41Z",
       "servers": [
         {
           "name": "Conquest · Panama Canal",
@@ -43,7 +43,7 @@
     "battlefield: bad company": {
       "players": 7,
       "source": "PS Restored · PSN / PS3",
-      "checkedAt": "2026-10-12T18:10:21Z",
+      "checkedAt": "2026-10-12T18:10:41Z",
       "servers": [
         {
           "name": "BC Gold Rush · bc1-1",
