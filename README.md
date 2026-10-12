@@ -1,24 +1,23 @@
 # PS3 Revival Hub
 
-Statyczna strona katalogowa dla społecznościowych projektów online gier PlayStation 3. Głównym źródłem danych jest publiczny eksport CSV z arkusza Google Sheets. Strona pobiera go przy każdym otwarciu, łączy obie tabele według tytułu gry i pokazuje zmienione dane bez przebudowywania strony. `data/games.json` jest kopią zapasową na wypadek chwilowej niedostępności arkusza.
+Strona pobiera dane z publicznego eksportu CSV arkusza Google Sheets przy każdym otwarciu. Łączy obie tabele po tytule gry; edycje w arkuszu pojawiają się po odświeżeniu witryny.
 
-## Edytowanie danych
+## Arkusz i logotypy
 
-Edytuj [arkusz PS3 DNS](https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/edit?usp=sharing). Nie zmieniaj wierszy nagłówków `Gra` ani `PS3 Online Multiplayer Games`, bo strona używa ich do rozpoznania dwóch sekcji. Zapisz zmiany; po odświeżeniu strony aktualny arkusz zostanie pobrany ponownie. Link **Edytuj arkusz** prowadzi z witryny prosto do arkusza.
+Edytuj [arkusz PS3 DNS](https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/edit?usp=sharing). Nie zmieniaj wierszy nagłówków `Gra` ani `PS3 Online Multiplayer Games`.
 
-Arkusz musi pozostać udostępniony osobom mającym link. Witryna korzysta z publicznego eksportu CSV, więc nie wymaga klucza API ani logowania. Nie umieszczaj w nim danych poufnych. Prywatne odnośniki `discord.com/channels/...` nie są wyświetlane; widoczne są tylko publiczne zaproszenia Discord.
+W pierwszej tabeli możesz dodać nagłówki w pustych kolumnach po prawej stronie:
 
-## Co zawiera strona
+- `Logo URL` — bezpośredni adres HTTPS do logotypu gry, najlepiej PNG z przezroczystym tłem lub SVG. Strona używa tylko adresów wpisanych w arkuszu; nie szuka automatycznie przypadkowych grafik. Jeśli adresu brakuje albo obraz nie działa, karta pokazuje nazwę gry.
+- `Liczba graczy PS3` — opcjonalna wartość ręczna dla gier, których źródła nie obsługują automatycznego licznika.
+- `Kategoria` — opcjonalna kategoria, która zastąpi kategorię rozpoznawaną przez stronę.
 
-- wyszukiwarkę gier i projektów oraz filtry gatunku i statusu;
-- karty gier z okładkami pobieranymi na żądanie z Wikimedia, jeśli są dostępne;
-- projekty, odnośniki do ich stron i statusów oraz publiczne linki społeczności;
-- osobne pola DNS i przyciski kopiowania;
-- czytelne opisy statusów niepotwierdzonych i lokalnych adresów testowych.
+Wpisuj wartości w wierszu danej gry. Udostępnianie arkusza musi pozostać ustawione na „Każda osoba mająca link”. Nie umieszczaj tam danych poufnych. Prywatne odnośniki `discord.com/channels/...` nie są pokazywane; widoczne są tylko publiczne zaproszenia.
 
-Statusy są informacjami społecznościowymi i mogą się zmieniać. DNS sam nie gwarantuje działania gry; projekt może wymagać aktywnych serwerów lub dodatkowej konfiguracji. Strona jest niezależnym projektem i nie jest powiązana z Sony Interactive Entertainment.
+## Automatyczne liczniki
 
-## GitHub Pages
+GitHub Actions odświeża liczby co 15 minut i publikuje snapshot w `data/live-counts.json`. Strona pobiera go z GitHub, niezależnie od odświeżania samej strony. Automatyczne liczniki obejmują TDU World (wyłącznie licznik PS3) i serwery BFBC2 z PS Restored (wyłącznie profile PSN). Buzz! Revival zostanie dodany do automatycznego odczytu, gdy będzie wpisany w arkuszu. Strona pokazuje czas ostatniego odczytu oraz osobne liczby dla serwerów BFBC2.
 
-Repozytorium publikuje stronę z plików w głównym katalogu. Włączone już GitHub Pages aktualizuje witrynę po zmianie opublikowanej gałęzi. Adres: <https://tycuuu.github.io/ps3-revival-hub/>.
+Liczników PS Rewired i Arcadii nie pokazujemy jako PS3-only, bo ich strony nie rozdzielają wiarygodnie konsoli od RPCS3. Endpoint Destination Home obecnie nie odpowiada. Jeśli licznik nie jest dostępny automatycznie, można wpisać jego wartość w kolumnie `Liczba graczy PS3`; strona oznaczy ją jako wartość z arkusza, nie jako live.
 
+Workflow potrzebuje uprawnienia zapisu zawartości repozytorium (`Settings → Actions → General → Workflow permissions → Read and write permissions`). Nie zmienia ustawień GitHub Pages. Strona jest niezależnym projektem społecznościowym, niepowiązanym z Sony Interactive Entertainment.
