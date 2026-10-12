@@ -1,26 +1,24 @@
 # PS3 Revival Hub
 
-Statyczna strona katalogowa dla społecznościowych projektów online gier PlayStation 3. Katalog jest przechowywany w `data/games.json`; strona nie pobiera już danych z Google Sheets. Zmiana bazy polega na edycji tego pliku i opublikowaniu zmian w repozytorium.
+Statyczna strona katalogowa dla społecznościowych projektów online gier PlayStation 3. Głównym źródłem danych jest publiczny eksport CSV z arkusza Google Sheets. Strona pobiera go przy każdym otwarciu, łączy obie tabele według tytułu gry i pokazuje zmienione dane bez przebudowywania strony. `data/games.json` jest kopią zapasową na wypadek chwilowej niedostępności arkusza.
+
+## Edytowanie danych
+
+Edytuj [arkusz PS3 DNS](https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/edit?usp=sharing). Nie zmieniaj wierszy nagłówków `Gra` ani `PS3 Online Multiplayer Games`, bo strona używa ich do rozpoznania dwóch sekcji. Zapisz zmiany; po odświeżeniu strony aktualny arkusz zostanie pobrany ponownie. Link **Edytuj arkusz** prowadzi z witryny prosto do arkusza.
+
+Arkusz musi pozostać udostępniony osobom mającym link. Witryna korzysta z publicznego eksportu CSV, więc nie wymaga klucza API ani logowania. Nie umieszczaj w nim danych poufnych. Prywatne odnośniki `discord.com/channels/...` nie są wyświetlane; widoczne są tylko publiczne zaproszenia Discord.
 
 ## Co zawiera strona
 
 - wyszukiwarkę gier i projektów oraz filtry gatunku i statusu;
-- karty gier z okładkami pobieranymi na żądanie z Wikimedia Commons/Wikipedii, jeśli są dostępne;
-- projekty powiązane z grą, linki do ich stron i statusów oraz publiczne linki społeczności;
+- karty gier z okładkami pobieranymi na żądanie z Wikimedia, jeśli są dostępne;
+- projekty, odnośniki do ich stron i statusów oraz publiczne linki społeczności;
 - osobne pola DNS i przyciski kopiowania;
-- opisy ostrzegające o wpisach niepotwierdzonych i adresach testowych.
+- czytelne opisy statusów niepotwierdzonych i lokalnych adresów testowych.
 
-Strona jest niezależnym projektem społecznościowym i nie jest powiązana z Sony Interactive Entertainment. Statusy w katalogu są zgłoszeniami społeczności. DNS sam nie gwarantuje działania gry; projekt może wymagać aktywnych serwerów lub dodatkowej konfiguracji. Wewnętrzne odnośniki do prywatnych kanałów i wiadomości Discord nie są publikowane.
+Statusy są informacjami społecznościowymi i mogą się zmieniać. DNS sam nie gwarantuje działania gry; projekt może wymagać aktywnych serwerów lub dodatkowej konfiguracji. Strona jest niezależnym projektem i nie jest powiązana z Sony Interactive Entertainment.
 
-## Edycja katalogu
+## GitHub Pages
 
-Edytuj `data/games.json`. Każdy wpis gry zawiera tytuł, platformę, gatunek, status, tytuł artykułu do wyszukania okładki oraz tablicę `projects`. Projekt może zawierać:
+Repozytorium publikuje stronę z plików w głównym katalogu. Włączone już GitHub Pages aktualizuje witrynę po zmianie opublikowanej gałęzi. Adres: <https://tycuuu.github.io/ps3-revival-hub/>.
 
-- `name` — nazwę projektu;
-- `url`, `statusUrl`, `community` — opcjonalne publiczne odnośniki;
-- `dns` i `alternates` — zgłoszone adresy;
-- `note` — uwagi o stanie lub wymaganej konfiguracji.
-
-Nie wpisuj prywatnych linków `discord.com/channels/...`. Zachowuj informację, czy adres jest lokalny lub wymaga weryfikacji.
-
-GitHub Pages może serwować plik bez procesu budowania. Po włączeniu Pages w ustawieniach repozytorium zmiany w gałęzi publikacyjnej pojawią się na witrynie.
