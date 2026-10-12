@@ -1,6 +1,4 @@
-// Publiczny link CSV do karty z danymi.
-// Na razie zachowano dotychczasowy adres CSV. Aby pokazywać alternatywne DNS-y,
-// opublikuj właściwą kartę jako CSV i wklej jej link poniżej.
+// Publiczny CSV opublikowany z Google Sheets — karta z głównym i alternatywnymi DNS-ami.
 window.PS3_CONFIG = {
-  csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRahB-SvpAGuqW9i3zjpLgKMrZPpNYRydBeSF6YTUs0jd2lmOKWie4YRyTer9rbdw/pub?gid=1528606964&single=true&output=csv"
+  csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRtl-fj4jqAcie8rGQ0iI7HMg5C3JnzaUFZYbP9twG4YYK93OlqeVNOYjfswwhx0g/pub?gid=1640242559&single=true&output=csv"
 };

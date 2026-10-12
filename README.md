@@ -1,20 +1,29 @@
-# PS3 Revival Hub — klasyczny wygląd
+# PS3 Revival Hub — gotowy pakiet
 
-Pliki do wrzucenia do głównego katalogu repozytorium GitHub Pages:
-- `index.html`
-- `config.js`
+## Pliki
+- `index.html` — klasyczna strona retro, wyszukiwarka, filtry i kopiowanie adresów DNS.
+- `config.js` — ustawiony na nowy opublikowany link CSV.
+- `README.md` — instrukcja.
 
-## Ważne
-Strona obecnie używa istniejącego publicznego CSV. Ten CSV ma starszy układ z pojedynczą kolumną DNS, więc alternatywne adresy nie pokażą się, dopóki nie opublikujesz nowej karty `DNS GŁÓWNY I INNE` jako CSV i nie podmienisz `csvUrl` w `config.js`.
+## Źródło danych
+`https://docs.google.com/spreadsheets/d/e/2PACX-1vRtl-fj4jqAcie8rGQ0iI7HMg5C3JnzaUFZYbP9twG4YYK93OlqeVNOYjfswwhx0g/pub?gid=1640242559&single=true&output=csv`
 
-Kolumny, które strona rozpoznaje:
+## Wgranie na GitHub Pages
+1. Otwórz repozytorium `tycuuu/ps3-revival-hub`.
+2. Zastąp istniejący `index.html` plikiem z tego pakietu.
+3. Zastąp istniejący `config.js` plikiem z tego pakietu.
+4. Zapisz przez Commit changes.
+
+## Oczekiwane nagłówki CSV
+Strona rozpoznaje m.in.:
 - `Gra`
 - `Projekt / serwer`
-- `Główny adres DNS`
+- `Główny adres DNS` (obsługuje też wariant `DNS główny`)
 - `Inne działające adresy DNS`
 - `Platforma`
 - `Status / pewność` lub `Status`
-- `Uwagi`
+- `Uwagi` / `Uwagi / pewność`
 - `Źródło / instrukcja`
 
-Strona ma klasyczny, nieoficjalny wygląd inspirowany dawnymi portalami PlayStation: niebieski nagłówek, jasne tło, proste karty i nawigację. Nie używa oficjalnych logotypów Sony.
+## Uwaga
+Nie udało się niezależnie odczytać zawartości nowego CSV w tym środowisku, więc przed publikacją nie mogłem potwierdzić rzeczywistych nagłówków ani danych. Jeśli karta używa innych nazw kolumn, dostosuj nagłówki albo napisz, jakie są, a dopasuję parser.
