@@ -1,9 +1,7 @@
-# PS3 Revival Hub — automatyczne grafiki
+PS3 Revival Hub — poprawiona wersja
 
-Pliki: `index.html`, `config.js`, `README.md`.
+Najważniejsza zmiana: adres CSV jest wpisany bezpośrednio w index.html, więc strona nie zależy od config.js.
+Dodatkowo dodano limit czasu pobierania i komunikat błędu zamiast nieskończonego ładowania.
 
-Strona najpierw używa grafiki z kolumny `Logo gry`, `Okładka`, `Image URL` lub podobnej, jeśli została podana. W przeciwnym razie próbuje automatycznie znaleźć grafikę przez publiczne API Wikipedii (bez klucza API). Wynik może być grafiką artykułu, a nie zawsze dokładną okładką pudełkową PS3.
-
-SteamGridDB ma okładki i grafiki, ale wymaga klucza API. Nie wkładamy go do `index.html`, bo na GitHub Pages byłby publiczny. Aby mieć dokładne okładki PS3 dla wszystkich tytułów, można później uzupełnić kolumnę `Okładka` sprawdzonymi URL-ami.
-
-Wgraj `index.html` i `config.js` do repozytorium `tycuuu/ps3-revival-hub`, zastępując poprzednie pliki.
+Wgraj index.html do repozytorium, zastępując dotychczasowy plik. config.js jest dołączony, ale index.html go nie wymaga.
+Uwaga: jeśli arkusz CSV jest niedostępny albo blokowany przez przeglądarkę, strona pokaże komunikat z linkiem do bezpośredniego sprawdzenia CSV.
