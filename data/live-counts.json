@@ -1,4 +1,49 @@
 {
-  "checkedAt": null,
-  "games": {}
+  "checkedAt": "2026-10-12T17:32:12Z",
+  "games": {
+    "buzz! quiz tv": {
+      "players": 0,
+      "source": "Buzz! Revival · PS3",
+      "checkedAt": "2026-10-12T17:32:12Z"
+    },
+    "battlefield: bad company 2": {
+      "players": 26,
+      "source": "PS Restored · PSN / PS3",
+      "checkedAt": "2026-10-12T17:32:12Z",
+      "servers": [
+        {
+          "name": "Conquest · Panama Canal",
+          "players": 10
+        },
+        {
+          "name": "Conquest · Arica Harbor",
+          "players": 0
+        },
+        {
+          "name": "Rush · Valparaiso",
+          "players": 8
+        },
+        {
+          "name": "Squad Rush · Panama Canal",
+          "players": 0
+        },
+        {
+          "name": "Squad Deathmatch · Panama Canal",
+          "players": 0
+        },
+        {
+          "name": "Rush · Arica Harbor",
+          "players": 8
+        },
+        {
+          "name": "Vietnam Conquest · Hill 137",
+          "players": 0
+        },
+        {
+          "name": "Vietnam Rush · Hill 137",
+          "players": 0
+        }
+      ]
+    }
+  }
 }
