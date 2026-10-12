@@ -1,24 +1,21 @@
 # PS3 Revival Hub
 
-Statyczna strona katalogowa dla społecznościowych projektów online gier PlayStation 3. Głównym źródłem danych jest publiczny eksport CSV z arkusza Google Sheets. Strona pobiera go przy każdym otwarciu, łączy obie tabele według tytułu gry i pokazuje zmienione dane bez przebudowywania strony. `data/games.json` jest kopią zapasową na wypadek chwilowej niedostępności arkusza.
+Strona pobiera dane z publicznego eksportu CSV arkusza Google Sheets przy każdym otwarciu. Łączy obie tabele po tytule gry; edycje w arkuszu pojawią się po odświeżeniu witryny.
 
-## Edytowanie danych
+## Arkusz i logotypy
 
-Edytuj [arkusz PS3 DNS](https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/edit?usp=sharing). Nie zmieniaj wierszy nagłówków `Gra` ani `PS3 Online Multiplayer Games`, bo strona używa ich do rozpoznania dwóch sekcji. Zapisz zmiany; po odświeżeniu strony aktualny arkusz zostanie pobrany ponownie. Link **Edytuj arkusz** prowadzi z witryny prosto do arkusza.
+Edytuj [arkusz PS3 DNS](https://docs.google.com/spreadsheets/d/1Oj3D-jTXuEPmC4b21FQ1I-K8JTJYQRkKkK4cBhTaHxs/edit?usp=sharing). Nie zmieniaj wierszy nagłówków `Gra` ani `PS3 Online Multiplayer Games`.
 
-Arkusz musi pozostać udostępniony osobom mającym link. Witryna korzysta z publicznego eksportu CSV, więc nie wymaga klucza API ani logowania. Nie umieszczaj w nim danych poufnych. Prywatne odnośniki `discord.com/channels/...` nie są wyświetlane; widoczne są tylko publiczne zaproszenia Discord.
+W pierwszej tabeli możesz dodać nagłówki w pustych kolumnach po prawej stronie:
 
-## Co zawiera strona
+- `Logo URL` — bezpośredni adres HTTPS do logotypu gry (najlepiej PNG z przezroczystym tłem lub SVG). Strona wyświetla tylko grafiki wpisane w arkuszu; przy braku lub błędzie obrazka zostaje nazwa gry.
+- `Liczba graczy PS3` — liczba do wyświetlenia przy grze. Aktualnie źródła nie pozwalają na bezpośrednie pobieranie liczników z przeglądarki, więc tę wartość trzeba aktualizować w arkuszu.
+- `Kategoria` — opcjonalna kategoria, która zastąpi automatyczny filtr gatunku.
 
-- wyszukiwarkę gier i projektów oraz filtry gatunku i statusu;
-- karty gier z okładkami pobieranymi na żądanie z Wikimedia, jeśli są dostępne;
-- projekty, odnośniki do ich stron i statusów oraz publiczne linki społeczności;
-- osobne pola DNS i przyciski kopiowania;
-- czytelne opisy statusów niepotwierdzonych i lokalnych adresów testowych.
+Po dodaniu nagłówka wpisuj wartości w tym samym wierszu co gra. Udostępnianie arkusza musi pozostać ustawione na „Każda osoba mająca link”. Nie umieszczaj tam danych poufnych. Prywatne odnośniki `discord.com/channels/...` nie są pokazywane na stronie; widoczne są jedynie publiczne zaproszenia.
 
-Statusy są informacjami społecznościowymi i mogą się zmieniać. DNS sam nie gwarantuje działania gry; projekt może wymagać aktywnych serwerów lub dodatkowej konfiguracji. Strona jest niezależnym projektem i nie jest powiązana z Sony Interactive Entertainment.
+## Liczniki online
 
-## GitHub Pages
+Liczba graczy może być pokazana, jeśli jest dostępna jako kolumna `Liczba graczy PS3` w arkuszu. Nie oznaczam jej jako live, bo obecne strony liczników nie zezwalają na odczyt z domeny GitHub Pages przez przeglądarkę (brak CORS), a jeden z używanych endpointów zwraca 404. Automatyczne i aktualne liczniki wymagałyby osobnego serwera pośredniczącego, który pobiera dane i zapisuje je do arkusza lub publikuje jako plik.
 
-Repozytorium publikuje stronę z plików w głównym katalogu. Włączone już GitHub Pages aktualizuje witrynę po zmianie opublikowanej gałęzi. Adres: <https://tycuuu.github.io/ps3-revival-hub/>.
-
+Statusy i adresy DNS są informacjami społecznościowymi i mogą wymagać weryfikacji. DNS sam nie gwarantuje działania gry. Strona jest niezależnym projektem, niepowiązanym z Sony Interactive Entertainment.
