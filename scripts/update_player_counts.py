@@ -16,18 +16,32 @@ ROOT = Path(__file__).resolve().parents[1]
 SHEET_CSV = "https://docs.google.com/spreadsheets/d/1JyL-Pt7JU6uj0zA-pts3SPQFTGPYcluE/export?format=csv"
 OUTPUT = ROOT / "data" / "live-counts.json"
 USER_AGENT = "PS3-Revival-Hub/1.0 (community game count display)"
-BFBC2_SERVERS = {
+BFBC2_STANDARD_SERVERS = {
     "Conquest · Panama Canal": "https://psrestored.online/bfbc2?server=conquest",
     "Conquest · Arica Harbor": "https://psrestored.online/bfbc2?server=s4",
     "Rush · Valparaiso": "https://psrestored.online/bfbc2?server=s3",
     "Squad Rush · Panama Canal": "https://psrestored.online/bfbc2?server=s5",
     "Squad Deathmatch · Panama Canal": "https://psrestored.online/bfbc2?server=s6",
     "Rush · Arica Harbor": "https://psrestored.online/bfbc2?server=rush",
-    "Vietnam Conquest · Hill 137": "https://psrestored.online/bfbc2?server=s8&game=vietnam",
-    "Vietnam Rush · Hill 137": "https://psrestored.online/bfbc2?server=s7&game=vietnam",
+}
+BFBC2_VIETNAM_SERVERS = {
+    "Conquest · Hill 137": "https://psrestored.online/bfbc2?server=s8&game=vietnam",
+    "Rush · Hill 137": "https://psrestored.online/bfbc2?server=s7&game=vietnam",
 }
 BFBC1_SERVERS = {
     "BC Gold Rush · bc1-1": "https://psrestored.online/bfbc1?server=bc1-1",
+}
+PSREWIRED_GAMES = {
+    "killzone 2": [(21784, "US")],
+    "killzone 3": [(23044, "US")],
+    "motorstorm": [(20764, "US"), (20364, "US")],
+    "motorstorm pacific rift": [(21624, "US")],
+    "motorstorm apocalypse": [(22500, "US")],
+    "resistance fall of man": [(20174, "US")],
+    "resistance 2": [(21734, "US")],
+    "nba 07": [(20244, "EU")],
+    "playstation home": [(20374, "US")],
+    "socom confrontation": [(21094, "US")],
 }
 
 
@@ -99,6 +113,32 @@ def count_psrestored(url: str) -> int:
     return len(page.psn_links)
 
 
+def count_psrewired(application_id: int, region: str) -> int:
+    base = "https://api.psrewired.com/eu/api" if region == "EU" else "https://api.psrewired.com/us/api"
+    request = Request(
+        f"{base}/universes/players?applicationId={application_id}",
+        headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+    )
+    with urlopen(request, timeout=25) as response:
+        content = response.read().decode("utf-8", errors="replace")
+    try:
+        players = json.loads(content)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("API zwróciło niepoprawną listę graczy") from exc
+    if not isinstance(players, list):
+        raise RuntimeError("API zwróciło nieoczekiwany format danych")
+    # The API includes RPCS3 accounts too; count only accounts identified as PSN.
+    return sum(
+        1
+        for player in players
+        if isinstance(player, dict) and str(player.get("pS3AccountType", "")).casefold() == "psn"
+    )
+
+
+def normalize_title(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
+
+
 def read_sheet() -> tuple[list[dict[str, str]], set[str]]:
     request = Request(SHEET_CSV, headers={"User-Agent": USER_AGENT})
     with urlopen(request, timeout=25) as response:
@@ -161,7 +201,8 @@ def main() -> None:
     results: dict[str, dict] = {}
     now = stamp()
     rows, titles = read_sheet()
-    has_bfbc2 = any("bad company 2" in title for title in titles)
+    normalized_titles = {normalize_title(title) for title in titles}
+    has_bfbc2 = any("bad company 2" in title for title in normalized_titles)
     has_tdu = any("test drive unlimited 2" in title for title in titles)
     buzz_title = next((title for title in titles if "buzz" in title), None)
     def save_count(key: str, players: int, source: str, *, servers: list[dict] | None = None) -> None:
@@ -190,13 +231,22 @@ def main() -> None:
 
     if has_bfbc2:
         servers: list[dict] = []
-        for name, url in BFBC2_SERVERS.items():
+        for name, url in BFBC2_STANDARD_SERVERS.items():
             try:
                 servers.append({"name": name, "players": count_psrestored(url)})
             except Exception as exc:
                 print(f"SKIP PS Restored {name}: {exc}")
         if servers:
             save_count("battlefield: bad company 2", sum(s["players"] for s in servers), "PS Restored · PSN / PS3", servers=servers)
+
+        vietnam_servers: list[dict] = []
+        for name, url in BFBC2_VIETNAM_SERVERS.items():
+            try:
+                vietnam_servers.append({"name": name, "players": count_psrestored(url)})
+            except Exception as exc:
+                print(f"SKIP PS Restored Vietnam {name}: {exc}")
+        if vietnam_servers:
+            save_count("battlefield: bad company 2 vietnam", sum(s["players"] for s in vietnam_servers), "PS Restored · PSN / PS3", servers=vietnam_servers)
 
     servers = []
     for name, url in BFBC1_SERVERS.items():
@@ -206,6 +256,20 @@ def main() -> None:
             print(f"SKIP PS Restored {name}: {exc}")
     if servers:
         save_count("battlefield: bad company", sum(s["players"] for s in servers), "PS Restored · PSN / PS3", servers=servers)
+
+    for title_key, app_ids in PSREWIRED_GAMES.items():
+        if title_key not in normalized_titles:
+            continue
+        player_total = 0
+        successful_apps = 0
+        for application_id, region in app_ids:
+            try:
+                player_total += count_psrewired(application_id, region)
+                successful_apps += 1
+            except Exception as exc:
+                print(f"SKIP PS Rewired {title_key} ({application_id}): {exc}")
+        if successful_apps:
+            save_count(title_key, player_total, "PS Rewired · PSN / PS3")
 
     # Keep a last successful reading for up to 12 hours if a source is temporarily unavailable.
     for key, old in previous.items():
