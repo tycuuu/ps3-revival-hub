@@ -1,45 +1,45 @@
 {
-  "checkedAt": "2026-11-08T21:59:31Z",
+  "checkedAt": "2026-11-08T22:37:31Z",
   "games": {
     "battlefield: bad company 2": {
-      "players": 93,
+      "players": 68,
       "source": "PS Restored · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z",
+      "checkedAt": "2026-11-08T22:37:31Z",
       "servers": [
         {
           "name": "Conquest · Panama Canal",
-          "players": 21
+          "players": 13
         },
         {
           "name": "Conquest · Arica Harbor",
-          "players": 21
+          "players": 13
         },
         {
           "name": "Rush · Valparaiso",
-          "players": 1
+          "players": 0
         },
         {
           "name": "Squad Rush · Panama Canal",
-          "players": 21
+          "players": 13
         },
         {
           "name": "Squad Deathmatch · Panama Canal",
-          "players": 21
+          "players": 13
         },
         {
           "name": "Rush · Arica Harbor",
-          "players": 8
+          "players": 16
         }
       ]
     },
     "battlefield: bad company 2 vietnam": {
-      "players": 0,
+      "players": 1,
       "source": "PS Restored · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z",
+      "checkedAt": "2026-11-08T22:37:31Z",
       "servers": [
         {
           "name": "Conquest · Hill 137",
-          "players": 0
+          "players": 1
         },
         {
           "name": "Rush · Hill 137",
@@ -50,7 +50,7 @@
     "battlefield: bad company": {
       "players": 0,
       "source": "PS Restored · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z",
+      "checkedAt": "2026-11-08T22:37:31Z",
       "servers": [
         {
           "name": "BC Gold Rush · bc1-1",
@@ -61,47 +61,47 @@
     "killzone 2": {
       "players": 28,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "killzone 3": {
-      "players": 6,
+      "players": 9,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "motorstorm": {
       "players": 0,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "motorstorm pacific rift": {
       "players": 0,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "motorstorm apocalypse": {
-      "players": 2,
+      "players": 6,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "resistance fall of man": {
       "players": 1,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "resistance 2": {
-      "players": 21,
+      "players": 16,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "playstation home": {
       "players": 0,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "socom confrontation": {
       "players": 0,
       "source": "PS Rewired · PSN / PS3",
-      "checkedAt": "2026-11-08T21:59:31Z"
+      "checkedAt": "2026-11-08T22:37:31Z"
     },
     "buzz! quiz tv": {
       "players": 0,
