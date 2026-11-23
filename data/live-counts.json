@@ -54,7 +54,19 @@
       "servers": [
         {
           "name": "BC Gold Rush · bc1-1",
+          "url": "https://psrestored.online/bfbc1?server=bc1-1",
           "players": 0
+        },
+        {
+          "name": "BC Conquest · bc1-2",
+          "url": "https://psrestored.online/bfbc1?server=bc1-2",
+          "players": null
+        },
+        {
+          "name": "BFBC1.online · 51.254.208.173",
+          "url": "https://bfbc1.online/",
+          "address": "51.254.208.173",
+          "players": null
         }
       ]
     },

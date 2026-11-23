@@ -30,6 +30,12 @@ BFBC2_VIETNAM_SERVERS = {
 }
 BFBC1_SERVERS = {
     "BC Gold Rush · bc1-1": "https://psrestored.online/bfbc1?server=bc1-1",
+    "BC Conquest · bc1-2": "https://psrestored.online/bfbc1?server=bc1-2",
+}
+BFBC1_OWN_SERVER = {
+    "name": "BFBC1.online · 51.254.208.173",
+    "url": "https://bfbc1.online/",
+    "address": "51.254.208.173",
 }
 PSREWIRED_GAMES = {
     "killzone 2": [(21784, "US")],
@@ -111,6 +117,21 @@ def count_psrestored(url: str) -> int:
     if not page.panel_found:
         raise RuntimeError("Nie znaleziono profili PSN w panelu serwera")
     return len(page.psn_links)
+
+
+def count_bfbc1_own_server() -> int | None:
+    """Read a PS3-only count if the owner's status page publishes one."""
+    _, page = fetch(BFBC1_OWN_SERVER["url"])
+    text = " ".join(page.text + page.descriptions)
+    patterns = (
+        r"PS3\s+(?:players?|graczy)\s*(?:online)?\s*[:·-]?\s*(\d+)",
+        r"(\d+)\s+PS3\s+(?:players?|graczy)\s+online",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text, re.I)
+        if match:
+            return int(match.group(1))
+    return None
 
 
 def count_psrewired(application_id: int, region: str) -> int:
@@ -251,11 +272,22 @@ def main() -> None:
     servers = []
     for name, url in BFBC1_SERVERS.items():
         try:
-            servers.append({"name": name, "players": count_psrestored(url)})
+            servers.append({"name": name, "url": url, "players": count_psrestored(url)})
         except Exception as exc:
+            servers.append({"name": name, "url": url, "players": None})
             print(f"SKIP PS Restored {name}: {exc}")
+    try:
+        own_count = count_bfbc1_own_server()
+        servers.append({**BFBC1_OWN_SERVER, "players": own_count})
+        if own_count is None:
+            print("INFO BFBC1.online: brak osobnego licznika PS3; serwer widoczny bez liczby")
+    except Exception as exc:
+        servers.append({**BFBC1_OWN_SERVER, "players": None})
+        print(f"INFO BFBC1.online: strona nie udostępniła licznika PS3: {exc}")
     if servers:
-        save_count("battlefield: bad company", sum(s["players"] for s in servers), "PS Restored · PSN / PS3", servers=servers)
+        total = sum(s["players"] for s in servers if isinstance(s.get("players"), int))
+        sources = "PS Restored · PSN / PS3 + BFBC1.online" if len(servers) > 2 else "PS Restored · PSN / PS3"
+        save_count("battlefield: bad company", total, sources, servers=servers)
 
     for title_key, app_ids in PSREWIRED_GAMES.items():
         if title_key not in normalized_titles:
